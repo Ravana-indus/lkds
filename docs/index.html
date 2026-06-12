@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LankaDS — Sri Lanka National Design System v1.1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&family=Noto+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon-50:#FBEEF2;--maroon-100:#F6DBE3;--maroon-200:#EDB7C6;--maroon-300:#DE89A1;--maroon-400:#C9577C;--maroon-500:#AB2F58;--maroon-600:#8D153A;--maroon-700:#750E30;--maroon-800:#5C0A26;--maroon-900:#44071D;
+  --saffron-50:#FEF3EA;--saffron-100:#FCE3D1;--saffron-200:#F8C5A3;--saffron-300:#F3A06C;--saffron-400:#EB7A38;--saffron-500:#E96A1C;--saffron-600:#DC580A;--saffron-700:#B84608;--saffron-800:#913606;--saffron-900:#6B2704;
+  --gold-50:#FEF9EB;--gold-100:#FDF0CE;--gold-200:#FAE19D;--gold-300:#F7CF63;--gold-400:#F3C13B;--gold-500:#F0B41E;--gold-600:#D49A0E;--gold-700:#A97809;--gold-800:#7E5807;--gold-900:#573C05;
+  --green-50:#EAF7EF;--green-100:#D2EEDD;--green-200:#A6DEBB;--green-300:#72C893;--green-400:#3FAE6C;--green-500:#18954F;--green-600:#07763D;--green-700:#005A32;--green-800:#00472A;--green-900:#003520;
+  --stone-0:#FFFFFF;--stone-25:#FDFCF9;--stone-50:#FAF8F4;--stone-100:#F3F1EC;--stone-200:#E7E4DD;--stone-300:#D5D1C8;--stone-400:#B3AEA3;--stone-500:#8A857B;--stone-600:#6B665D;--stone-700:#4F4B44;--stone-800:#33302B;--stone-900:#1F1D19;--stone-950:#14130F;
+  --ink:#16181A;
+  --danger-50:#FCEDEB;--danger-100:#F9D9D5;--danger-300:#E9867A;--danger-600:#C42B1C;--danger-700:#A02114;--danger-800:#7C180E;
+  --info-50:#EDF4FC;--info-100:#D7E6F8;--info-300:#7FAEE6;--info-600:#1158A6;--info-700:#0C4685;--info-800:#093565;
+  --canvas:var(--stone-50);--surface:#fff;--border:var(--stone-200);
+  --sh1:0 1px 2px rgba(28,27,24,.06),0 1px 3px rgba(28,27,24,.08);
+  --sh2:0 2px 6px rgba(28,27,24,.07),0 4px 12px rgba(28,27,24,.08);
+  --sh3:0 8px 24px rgba(28,27,24,.12);
+  --r-md:12px;--r-lg:16px;--r-xl:24px;
+  --font:"Noto Sans","Noto Sans Sinhala","Noto Sans Tamil",system-ui,sans-serif;
+  --mono:"Noto Sans Mono",ui-monospace,Menlo,monospace;
+  --ribbon:linear-gradient(90deg,var(--green-700) 0 25%,var(--saffron-600) 25% 50%,var(--maroon-600) 50% 75%,var(--gold-500) 75% 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--canvas);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+:lang(si){font-family:"Noto Sans Sinhala",var(--font);line-height:1.75}
+:lang(ta){font-family:"Noto Sans Tamil",var(--font);line-height:1.7}
+a{color:var(--info-600)}
+.ribbon{height:6px;background:var(--ribbon)}
+
+/* Masthead */
+.masthead{position:sticky;top:0;z-index:100;background:rgba(250,248,244,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.masthead-in{max-width:1400px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:14px}
+.mark{display:flex;align-items:flex-end;gap:2.5px;height:26px}
+.mark i{width:5px;border-radius:2px;display:block;transform:skewX(-6deg)}
+.brand-name{font-weight:800;font-size:19px;letter-spacing:-.02em}
+.brand-sub{font-size:12.5px;color:var(--stone-600);border-left:1px solid var(--stone-300);padding-left:14px;line-height:1.45}
+.vtag{margin-left:auto;font-family:var(--mono);font-size:12px;background:var(--gold-500);color:var(--ink);padding:4px 12px;border-radius:999px;white-space:nowrap;font-weight:500}
+
+/* Layout */
+.shell{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:248px minmax(0,1fr);gap:0}
+nav.toc{position:sticky;top:73px;align-self:start;height:calc(100vh - 73px);overflow-y:auto;padding:32px 12px 48px 28px;border-right:1px solid var(--border)}
+.toc-h{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--stone-500);margin:20px 0 8px 12px}
+.toc a{display:block;padding:7px 12px;border-radius:8px;color:var(--stone-700);text-decoration:none;font-size:14px;border-left:2px solid transparent}
+.toc a:hover{background:var(--stone-100);color:var(--ink)}
+.toc a.on{background:var(--gold-100);color:var(--ink);font-weight:700;border-left:2px solid var(--gold-600)}
+main{padding:0 56px 120px;min-width:0}
+section{padding-top:88px;max-width:920px}
+.kick{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-800);margin-bottom:14px}
+.kick::before{content:"";width:22px;height:3px;border-radius:2px;background:var(--ribbon);display:inline-block}
+h1{font-size:clamp(38px,5vw,57px);line-height:1.1;font-weight:800;letter-spacing:-.025em}
+h2{font-size:34px;line-height:1.22;font-weight:800;letter-spacing:-.02em;margin-bottom:14px}
+h3{font-size:21px;font-weight:700;margin:44px 0 12px;letter-spacing:-.01em}
+h4{font-size:16.5px;font-weight:700;margin:28px 0 8px}
+.lede{font-size:18.5px;line-height:1.65;color:var(--stone-700);max-width:760px}
+p{margin-bottom:12px}
+section>p,section .lede{margin-bottom:14px}
+
+/* Cards & grids */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;box-shadow:var(--sh1)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.muted{color:var(--stone-600)}.small{font-size:14px;line-height:1.55}.tiny{font-size:12.5px;line-height:1.5}
+code,.tok{font-family:var(--mono);font-size:12.5px;background:var(--stone-100);border:1px solid var(--stone-200);padding:1.5px 7px;border-radius:6px;white-space:nowrap}
+pre{font-family:var(--mono);font-size:13px;line-height:1.7;background:var(--stone-900);color:#EFEDE6;padding:20px 24px;border-radius:var(--r-md);overflow-x:auto;margin:16px 0}
+pre .c{color:#9A958A}pre .k{color:var(--gold-300)}pre .v{color:#A6DEBB}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden}
+th{text-align:left;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--stone-600);font-weight:700;padding:11px 16px;background:var(--stone-100);border-bottom:1px solid var(--border)}
+td{padding:11px 16px;border-bottom:1px solid var(--stone-100);vertical-align:top}
+tr:last-child td{border-bottom:none}
+.pass{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px}
+.aaa{background:var(--green-100);color:var(--green-800)}
+.aa{background:var(--info-100);color:var(--info-800)}
+.lg-only{background:var(--gold-100);color:var(--gold-900)}
+.fail{background:var(--danger-100);color:var(--danger-800)}
+
+/* Hero */
+.hero{padding-top:64px}
+.hero-card{margin-top:36px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh2)}
+.hero-strip{height:8px;background:var(--ribbon)}
+.hero-in{padding:40px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.tri{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:17px}
+.tri .en{color:var(--stone-600);font-weight:500}
+.hero-mark{display:flex;align-items:flex-end;gap:7px;height:130px;padding:0 12px}
+.hero-mark i{width:17px;border-radius:5px;transform:skewX(-6deg);box-shadow:var(--sh1)}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border)}
+.stat{padding:18px 24px;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat b{display:block;font-size:22px;font-weight:800;letter-spacing:-.02em}
+.stat span{font-size:12.5px;color:var(--stone-600)}
+
+/* Principles */
+.prin{counter-reset:p}
+.prin .card{position:relative;padding:26px 24px 22px}
+.prin .card::before{counter-increment:p;content:"0" counter(p);font-family:var(--mono);font-size:12px;color:var(--gold-700);font-weight:700;display:block;margin-bottom:10px}
+.prin h4{margin:0 0 8px;font-size:16.5px}
+.prin .si,.prin .ta{display:block;font-size:13.5px;color:var(--stone-600);margin-top:2px;font-weight:500}
+
+/* Color swatches */
+.pillar{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);background:#fff;box-shadow:var(--sh1)}
+.pillar-head{padding:22px 20px;color:#fff}
+.pillar-head .nm{font-weight:800;font-size:17px}
+.pillar-head .hx{font-family:var(--mono);font-size:12.5px;opacity:.85}
+.pillar-head .mean{font-size:12.5px;opacity:.92;margin-top:8px;line-height:1.5}
+.ramp{display:flex;height:44px}
+.ramp i{flex:1;position:relative;cursor:pointer}
+.ramp i:hover::after{content:attr(data-hex);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--stone-900);color:#fff;font-family:var(--mono);font-size:11px;padding:3px 8px;border-radius:6px;white-space:nowrap;z-index:5}
+.sw-row{display:flex;align-items:center;gap:12px;padding:10px 14px;border:1px solid var(--border);border-radius:10px;background:#fff}
+.sw{width:38px;height:38px;border-radius:9px;flex:none;border:1px solid rgba(0,0,0,.06)}
+.sw-meta b{display:block;font-size:13.5px}
+.sw-meta span{font-family:var(--mono);font-size:11.5px;color:var(--stone-600)}
+
+/* Typography specimens */
+.spec{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;margin:14px 0}
+.spec .lbl{font-family:var(--mono);font-size:11.5px;color:var(--stone-500);margin-bottom:10px;display:flex;justify-content:space-between}
+.tri-spec{display:grid;gap:18px}
+.tri-spec>div{padding-left:16px;border-left:3px solid var(--gold-500)}
+.tri-spec .tag{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--stone-500);text-transform:uppercase;display:block;margin-bottom:4px}
+
+/* Do / Don't */
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.do,.dont{border-radius:var(--r-md);overflow:hidden;border:1px solid var(--border);background:#fff}
+.do .bar{background:var(--green-700);color:#fff}.dont .bar{background:var(--danger-600);color:#fff}
+.bar{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px}
+.dd .bd{padding:16px;font-size:14px;line-height:1.6}
+
+/* Live component styles (the system itself) */
+.demo{background:var(--stone-100);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:14px 0}
+.demo.col{flex-direction:column;align-items:stretch}
+.btn{font-family:var(--font);display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 24px;border-radius:12px;font-size:16px;font-weight:600;border:2px solid transparent;cursor:pointer;transition:background .2s cubic-bezier(.2,0,0,1),box-shadow .2s}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.btn-pri{background:var(--gold-500);color:var(--ink)}
+.btn-pri:hover{background:var(--gold-600)}
+.btn-sec{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-sec:hover{background:var(--stone-100)}
+.btn-ter{background:transparent;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.btn-ter:hover{background:var(--stone-100)}
+.btn-danger{background:var(--danger-600);color:#fff}
+.btn-danger:hover{background:var(--danger-700)}
+.btn-lg{height:56px;padding:0 32px;font-size:17px}
+.btn-sm{height:40px;padding:0 18px;font-size:14.5px;border-radius:10px}
+.btn[disabled]{background:var(--stone-200);color:var(--stone-500);cursor:not-allowed}
+.lang-sw{display:inline-flex;background:#fff;border:1.5px solid var(--stone-300);border-radius:999px;padding:3px;gap:2px}
+.lang-sw button{font-family:var(--font);border:0;background:transparent;border-radius:999px;padding:7px 16px;font-size:14px;font-weight:600;color:var(--stone-600);cursor:pointer;min-height:36px}
+.lang-sw button.on{background:var(--gold-500);color:var(--ink)}
+.lang-sw button:focus-visible{outline:3px solid var(--ink);outline-offset:1px}
+.field{display:flex;flex-direction:column;gap:6px;max-width:420px;width:100%}
+.field label{font-size:14.5px;font-weight:600}
+.field .hint{font-size:13.5px;color:var(--stone-600)}
+.input{font-family:var(--font);height:56px;border:1.5px solid var(--stone-400);border-radius:12px;padding:0 16px;font-size:16px;background:#fff;color:var(--ink);width:100%}
+.input:focus{outline:3px solid var(--ink);outline-offset:2px;border-color:var(--ink)}
+.field.err .input{border-color:var(--danger-600);border-width:2px}
+.field .errmsg{font-size:13.5px;color:var(--danger-700);font-weight:600;display:flex;gap:6px;align-items:center}
+.svc{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--border);border-radius:16px;padding:16px;box-shadow:var(--sh1);text-decoration:none;color:var(--ink);min-width:280px;transition:box-shadow .2s,transform .2s}
+.svc:hover{box-shadow:var(--sh2);transform:translateY(-1px)}
+.svc .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;flex:none;font-size:21px}
+.svc b{display:block;font-size:15.5px}
+.svc span{font-size:13px;color:var(--stone-600)}
+.svc .chev{margin-left:auto;color:var(--stone-400);font-size:18px}
+.toast{display:flex;gap:12px;background:#fff;border:1px solid var(--border);border-left:4px solid var(--green-700);border-radius:14px;padding:14px 16px;box-shadow:var(--sh3);max-width:420px}
+.toast .t-ic{width:38px;height:38px;border-radius:10px;background:var(--green-50);color:var(--green-700);display:grid;place-items:center;flex:none;font-size:18px}
+.toast b{font-size:14.5px;display:block}
+.toast span{font-size:13.5px;color:var(--stone-600)}
+.toast time{margin-left:auto;font-size:12px;color:var(--stone-500);flex:none}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px}
+.badge::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.b-ok{background:var(--green-100);color:var(--green-800)}
+.b-pend{background:var(--gold-100);color:var(--gold-900)}
+.b-act{background:var(--saffron-100);color:var(--saffron-900)}
+.b-no{background:var(--danger-100);color:var(--danger-800)}
+.b-draft{background:var(--stone-100);color:var(--stone-700);border:1px solid var(--stone-300)}
+.alert{display:flex;gap:12px;padding:16px;border-radius:12px;border:1px solid;font-size:14.5px;line-height:1.55;width:100%}
+.alert b{display:block}
+.al-info{background:var(--info-50);border-color:var(--info-300);color:var(--info-800)}
+.al-ok{background:var(--green-50);border-color:var(--green-300);color:var(--green-800)}
+.al-warn{background:var(--gold-50);border-color:var(--gold-400);color:var(--gold-900)}
+.al-danger{background:var(--danger-50);border-color:var(--danger-300);color:var(--danger-800)}
+.steps{display:flex;width:100%;gap:0}
+.step{flex:1;text-align:center;position:relative;font-size:13px}
+.step .dot{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;margin:0 auto 8px;font-weight:700;font-size:13px;background:#fff;border:2px solid var(--stone-300);color:var(--stone-500);position:relative;z-index:2}
+.step::before{content:"";position:absolute;top:15px;left:-50%;width:100%;height:2px;background:var(--stone-300)}
+.step:first-child::before{display:none}
+.step.done .dot{background:var(--green-700);border-color:var(--green-700);color:#fff}
+.step.done::before{background:var(--green-700)}
+.step.now .dot{background:var(--gold-500);border-color:var(--gold-600);color:var(--ink);box-shadow:0 0 0 4px var(--gold-100)}
+.step.now::before{background:var(--green-700)}
+.step b{display:block;color:var(--ink)}
+.step span{color:var(--stone-500);font-size:12px}
+.phone{width:300px;background:#fff;border:1px solid var(--border);border-radius:28px;box-shadow:var(--sh3);overflow:hidden;flex:none}
+.ph-head{background:linear-gradient(135deg,#FFD95A,var(--gold-500) 60%,var(--saffron-400));color:var(--ink);padding:18px 18px 16px}
+.ph-head .hi{font-size:12.5px;opacity:.8}
+.ph-head .nm{font-weight:700;font-size:17px}
+.ph-bd{padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--stone-50)}
+.ph-nav{display:flex;border-top:1px solid var(--border);background:#fff}
+.ph-nav div{flex:1;text-align:center;padding:10px 0 12px;font-size:10.5px;color:var(--stone-500)}
+.ph-nav div.on{color:var(--ink);font-weight:700;box-shadow:inset 0 3px 0 var(--gold-500)}
+.ph-nav i{display:block;font-size:18px;font-style:normal;margin-bottom:2px}
+.searchbar{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--stone-300);border-radius:999px;height:48px;padding:0 18px;color:var(--stone-500);font-size:15px;max-width:420px;width:100%}
+
+/* misc */
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.fnote{font-size:13px;color:var(--stone-500);border-top:1px solid var(--border);margin-top:14px;padding-top:10px}
+.dlcard{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:var(--sh1)}
+.dlcard .ic{width:44px;height:44px;border-radius:10px;background:var(--gold-100);color:var(--gold-900);display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:700;flex:none}
+footer{border-top:1px solid var(--border);margin-top:80px;padding:32px 0 0;font-size:13.5px;color:var(--stone-600)}
+@media(max-width:1080px){.shell{grid-template-columns:1fr}nav.toc{display:none}main{padding:0 24px 80px}.g4,.g3{grid-template-columns:repeat(2,1fr)}.hero-in{grid-template-columns:1fr}.stat-row{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.g4,.g3,.g2,.dd{grid-template-columns:1fr}.masthead-in{padding:12px 18px}.brand-sub{display:none}}
+</style>
+</head>
+<body>
+<div class="ribbon"></div>
+<header class="masthead">
+  <div class="masthead-in">
+    <div class="mark" aria-hidden="true">
+      <i style="height:9px;background:var(--maroon-800)"></i><i style="height:14px;background:var(--maroon-600)"></i><i style="height:19px;background:var(--saffron-600)"></i><i style="height:26px;background:var(--gold-500)"></i><i style="height:17px;background:var(--green-700)"></i><i style="height:11px;background:var(--saffron-500)"></i>
+    </div>
+    <div class="brand-name">LankaDS</div>
+    <div class="brand-sub">Sri Lanka National Design System<br>ශ්‍රී ලංකා ජාතික නිර්මාණ පද්ධතිය · இலங்கை தேசிய வடிவமைப்பு முறைமை</div>
+    <div class="vtag">v1.1 · Draft for review</div>
+  </div>
+</header>
+
+<div class="shell">
+<nav class="toc" aria-label="Contents">
+  <div class="toc-h">Foundations</div>
+  <a href="#intro" class="on">Introduction</a>
+  <a href="#principles">Design principles</a>
+  <a href="#brand">Brand &amp; logo</a>
+  <a href="#color">Colour</a>
+  <a href="#type">Typography</a>
+  <a href="#layout">Spacing &amp; layout</a>
+  <a href="#shape">Shape &amp; elevation</a>
+  <a href="#icons">Iconography</a>
+  <div class="toc-h">Build</div>
+  <a href="#components">Components</a>
+  <a href="#patterns">Patterns</a>
+  <div class="toc-h">Standards</div>
+  <a href="#a11y">Accessibility</a>
+  <a href="#content">Content &amp; language</a>
+  <a href="#tokens">Design tokens</a>
+  <a href="#governance">Governance</a>
+</nav>
+
+<main>
+<!-- ============ HERO ============ -->
+<section id="intro" class="hero">
+  <div class="kick">GovTech · Digital Transformation Programme</div>
+  <h1>One nation.<br>One design language.</h1>
+  <p class="lede" style="margin-top:18px">LankaDS is the national design system of the Government of Sri Lanka — the shared foundation behind <strong>Sewa</strong>, the national super app, and every government digital service. Its philosophy is fixed: <strong>easy access · inclusivity · citizen first</strong>. The system leads with <strong>Unity Gold</strong> — the one colour of the flag that belongs to every community — and turns the rising pillars into tokens, components and patterns, so every ministry ships services that feel like one modern, progressive, trusted government.</p>
+  <div class="hero-card">
+    <div class="hero-strip"></div>
+    <div class="hero-in">
+      <div class="tri">
+        <span lang="si">එක ජාතියක්. එක යෙදුමක්. නිමක් නැති හැකියාවන්.</span>
+        <span lang="ta">ஒரு தேசம். ஒரு செயலி. எல்லையற்ற சாத்தியங்கள்.</span>
+        <span class="en">One Nation. One App. Endless Possibilities.</span>
+      </div>
+      <div class="hero-mark" aria-label="Sewa rising pillars mark (illustrative reconstruction)">
+        <i style="height:34px;background:var(--maroon-800)"></i>
+        <i style="height:56px;background:var(--maroon-600)"></i>
+        <i style="height:82px;background:var(--saffron-600)"></i>
+        <i style="height:118px;background:var(--gold-500)"></i>
+        <i style="height:74px;background:var(--green-700)"></i>
+        <i style="height:46px;background:var(--saffron-500)"></i>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><b>3</b><span>Languages — Sinhala, Tamil, English at full parity</span></div>
+      <div class="stat"><b>4</b><span>Equal pillars — no community's colour leads the interface</span></div>
+      <div class="stat"><b>AA</b><span>WCAG 2.2 conformance, mandatory</span></div>
+      <div class="stat"><b>48px</b><span>Minimum touch target, every control</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRINCIPLES ============ -->
+<section id="principles">
+  <div class="kick">Foundations</div>
+  <h2>Design principles</h2>
+  <p class="lede">The philosophy is fixed: <strong>easy access · inclusivity · citizen first</strong>. Six commitments flow from it, and they resolve disputes — when two options conflict, the higher principle wins.</p>
+  <div class="grid g2 prin" style="margin-top:24px">
+    <div class="card"><h4>Citizen first, ministry second <span class="si" lang="si">පුරවැසියා පළමුව</span><span class="ta" lang="ta">குடிமக்கள் முதலில்</span></h4><p class="small muted">Organise around life events — a birth, a job, a business, a pension — never around departmental structure. The citizen should finish a task without learning how government is organised.</p></div>
+    <div class="card"><h4>Inclusive by design <span class="si" lang="si">සියලු දෙනාටම</span><span class="ta" lang="ta">அனைவரையும் உள்ளடக்கி</span></h4><p class="small muted">No community, language, age or ability is an edge case. The interface leads with Unity Gold — the flag's shared colour — because even a palette can take sides. Trilingual parity, assisted modes and equal pillar status are enforced at token level, not left to goodwill.</p></div>
+    <div class="card"><h4>Easy access for everyone <span class="si" lang="si">පහසු ප්‍රවේශය</span><span class="ta" lang="ta">எளிதான அணுகல்</span></h4><p class="small muted">WCAG 2.2 AA is the floor, not the ceiling. 48&nbsp;px targets, plain language, journeys a first-time smartphone user finishes unaided — and assisted use at a Grama Niladhari office designed in from the start.</p></div>
+    <div class="card"><h4>Trilingual by default <span class="si" lang="si">භාෂා තුනෙන්ම</span><span class="ta" lang="ta">மும்மொழிகளிலும்</span></h4><p class="small muted">Sinhala, Tamil and English are designed together, not translated after. Every screen, error and SMS ships in all three; layouts are tested against the longest of the three strings.</p></div>
+    <div class="card"><h4>Built for every connection <span class="si" lang="si">සෑම සම්බන්ධතාවයකටම</span><span class="ta" lang="ta">எல்லா இணைப்புகளுக்கும்</span></h4><p class="small muted">Honour the 2G village and the budget Android. Pages under 500&nbsp;KB, offline-tolerant flows, SMS/USSD fallbacks for critical notifications.</p></div>
+    <div class="card"><h4>Progressive, modern, trusted <span class="si" lang="si">නවීන හා විශ්වාසනීය</span><span class="ta" lang="ta">நவீனமும் நம்பிக்கையும்</span></h4><p class="small muted">Government services should feel as good as the best consumer apps — fast, warm, beautifully made. The same button, words and receipt everywhere is also a security feature: when every legitimate screen looks the same, phishing stands out.</p></div>
+  </div>
+</section>
+<!-- ============ BRAND ============ -->
+<section id="brand">
+  <div class="kick">Foundations</div>
+  <h2>Brand &amp; logo</h2>
+  <p class="lede">The Sewa mark is a skyline of pillars in the four colours of the national flag — communities at different points in their journey, rising together toward a shared golden summit. It reads simultaneously as a city rising, a chart climbing, and a flame.</p>
+
+  <h3>The mark</h3>
+  <div class="grid g2">
+    <div class="card" style="display:grid;place-items:center;padding:40px">
+      <div class="hero-mark" style="height:110px" aria-label="Sewa pillars">
+        <i style="height:30px;background:var(--maroon-800)"></i><i style="height:48px;background:var(--maroon-600)"></i><i style="height:70px;background:var(--saffron-600)"></i><i style="height:100px;background:var(--gold-500)"></i><i style="height:63px;background:var(--green-700)"></i><i style="height:40px;background:var(--saffron-500)"></i>
+      </div>
+      <div style="font-weight:800;font-size:30px;letter-spacing:-.02em;margin-top:18px">Sewa</div>
+      <div class="tiny muted" lang="si">සේවා <span lang="ta" style="margin-left:8px">சேவை</span></div>
+    </div>
+    <div>
+      <h4 style="margin-top:0">Symbolism</h4>
+      <ul class="small" style="padding-left:18px;display:grid;gap:8px">
+        <li><b>Four colours, one flag.</b> Maroon, saffron, gold and green carry the communities of the national flag into a single rising form — held in deliberate equality.</li>
+        <li><b>Unequal heights.</b> Citizens start from different places; the system exists to help every pillar rise.</li>
+        <li><b>The golden summit.</b> Gold is the colour the flag gives to everyone — the border that wraps all communities equally. That is why it leads the interface: every primary action a citizen takes is golden.</li>
+        <li><b>The forward lean.</b> Pillars shear 6° forward: progress, not monument. A government in motion.</li>
+      </ul>
+      <p class="tiny muted" style="margin-top:10px">The mark shown here is an illustrative CSS reconstruction. Production use must always start from the official vector asset files held by the GovTech brand office.</p>
+    </div>
+  </div>
+
+  <h3>Clear space &amp; minimum sizes</h3>
+  <table>
+    <tr><th>Rule</th><th>Specification</th></tr>
+    <tr><td>Clear space</td><td>Keep a margin of <b>½ the mark's height</b> on all sides free of text, imagery and other logos.</td></tr>
+    <tr><td>Minimum size — app icon</td><td>Never below 24 × 24 px. Below 32 px, use the simplified 4-pillar cut.</td></tr>
+    <tr><td>Minimum size — print</td><td>8 mm height.</td></tr>
+    <tr><td>Co-branding</td><td>Ministry crests sit <em>after</em> the Sewa mark, separated by a 1 px stone-300 rule, never larger than the mark.</td></tr>
+    <tr><td>Backgrounds</td><td>Use on white, stone-50 canvas, or ink-900 photography scrim. On photography, always behind a scrim tested to 3:1 contrast.</td></tr>
+  </table>
+
+  <h3>The national ribbon</h3>
+  <p class="small">A 6–8 px strip of the four colours marks the top of every official page and document — the fastest possible signal of authenticity. Order is fixed (green → saffron → maroon → gold) and must never be re-sequenced.</p>
+  <div class="card" style="padding:0;overflow:hidden"><div style="height:8px;background:var(--ribbon)"></div><div style="padding:14px 18px" class="tiny muted">token: <code>--lk-gradient-ribbon</code> — fixed order, fixed proportions (25% each)</div></div>
+
+  <h3>Misuse</h3>
+  <div class="dd">
+    <div class="do"><div class="bar">Do</div><div class="bd">Use official assets at fixed proportions, on approved backgrounds, with full clear space. Pair the wordmark with Sinhala සේවා and Tamil சேவை lockups where space allows.</div></div>
+    <div class="dont"><div class="bar">Don't</div><div class="bd">Recolour the pillars, re-order them, rotate or mirror the mark, add shadows or outlines, stretch it, place it over busy photography, or rebuild it per ministry.</div></div>
+  </div>
+</section>
+
+<!-- ============ COLOUR ============ -->
+<section id="color">
+  <div class="kick">Foundations</div>
+  <h2>Colour</h2>
+  <p class="lede">All colour is sampled from the Sewa mark itself, then extended into eleven-step ramps. <strong>Unity Gold leads</strong>; the four pillars hold equal categorical status; warm stone neutrals do the listening. Every approved text pairing meets WCAG 2.2 AA — most reach AAA.</p>
+  <div class="card" style="border-left:4px solid var(--gold-500)">
+    <h4 style="margin-top:0">Why gold leads — inclusion, enforced in the palette</h4>
+    <p class="small muted" style="margin:0">In the national flag, maroon, saffron and green each belong to one community. <b>Gold belongs to all of them</b> — it is the border that wraps every panel equally, and the shared summit of the Sewa mark. A state interface that led with any single community's colour would quietly take a side. LankaDS therefore gives the lead role to gold, and uses the community pillars only as equal categorical accents. Inclusivity here is not a value statement — it is enforced in the tokens.</p>
+  </div>
+
+  <h3>The four pillars</h3>
+  <div class="grid g4" style="grid-template-columns:repeat(4,1fr)">
+    <div class="pillar" style="outline:2px solid var(--gold-500);outline-offset:2px"><div class="pillar-head" style="background:var(--gold-500);color:var(--ink)"><div class="nm">Gold — the lead</div><div class="hx">#F0B41E · gold-500</div><div class="mean">Unity. The primary action colour — buttons, selections, progress. Always carries ink text, never white.</div></div>
+      <div class="ramp"><i style="background:#FEF9EB" data-hex="#FEF9EB"></i><i style="background:#FDF0CE" data-hex="#FDF0CE"></i><i style="background:#FAE19D" data-hex="#FAE19D"></i><i style="background:#F7CF63" data-hex="#F7CF63"></i><i style="background:#F3C13B" data-hex="#F3C13B"></i><i style="background:#F0B41E" data-hex="#F0B41E"></i><i style="background:#D49A0E" data-hex="#D49A0E"></i><i style="background:#A97809" data-hex="#A97809"></i><i style="background:#7E5807" data-hex="#7E5807"></i><i style="background:#573C05" data-hex="#573C05"></i></div></div>
+    <div class="pillar"><div class="pillar-head" style="background:var(--maroon-600)"><div class="nm">Maroon</div><div class="hx">#8D153A · maroon-600</div><div class="mean">Heritage and gravitas. Equal categorical pillar — identity &amp; documents, data viz. Never the lead.</div></div>
+      <div class="ramp"><i style="background:#FBEEF2" data-hex="#FBEEF2"></i><i style="background:#F6DBE3" data-hex="#F6DBE3"></i><i style="background:#EDB7C6" data-hex="#EDB7C6"></i><i style="background:#DE89A1" data-hex="#DE89A1"></i><i style="background:#C9577C" data-hex="#C9577C"></i><i style="background:#AB2F58" data-hex="#AB2F58"></i><i style="background:#8D153A" data-hex="#8D153A"></i><i style="background:#750E30" data-hex="#750E30"></i><i style="background:#5C0A26" data-hex="#5C0A26"></i><i style="background:#44071D" data-hex="#44071D"></i></div></div>
+    <div class="pillar"><div class="pillar-head" style="background:var(--saffron-600)"><div class="nm">Saffron</div><div class="hx">#DC580A · saffron-600</div><div class="mean">Energy and momentum. Equal pillar — "action needed" states, promotional accents.</div></div>
+      <div class="ramp"><i style="background:#FEF3EA" data-hex="#FEF3EA"></i><i style="background:#FCE3D1" data-hex="#FCE3D1"></i><i style="background:#F8C5A3" data-hex="#F8C5A3"></i><i style="background:#F3A06C" data-hex="#F3A06C"></i><i style="background:#EB7A38" data-hex="#EB7A38"></i><i style="background:#E96A1C" data-hex="#E96A1C"></i><i style="background:#DC580A" data-hex="#DC580A"></i><i style="background:#B84608" data-hex="#B84608"></i><i style="background:#913606" data-hex="#913606"></i><i style="background:#6B2704" data-hex="#6B2704"></i></div></div>
+    <div class="pillar"><div class="pillar-head" style="background:var(--green-700)"><div class="nm">Green</div><div class="hx">#005A32 · green-700</div><div class="mean">Growth and confirmation. Equal pillar — success, completed steps, "approved".</div></div>
+      <div class="ramp"><i style="background:#EAF7EF" data-hex="#EAF7EF"></i><i style="background:#D2EEDD" data-hex="#D2EEDD"></i><i style="background:#A6DEBB" data-hex="#A6DEBB"></i><i style="background:#72C893" data-hex="#72C893"></i><i style="background:#3FAE6C" data-hex="#3FAE6C"></i><i style="background:#18954F" data-hex="#18954F"></i><i style="background:#07763D" data-hex="#07763D"></i><i style="background:#005A32" data-hex="#005A32"></i><i style="background:#00472A" data-hex="#00472A"></i><i style="background:#003520" data-hex="#003520"></i></div></div>
+  </div>
+  <p class="tiny muted" style="margin-top:8px">Hover any ramp step for its hex. Ramps run 50 → 900 left to right; starred steps are the exact values sampled from the brand mark.</p>
+
+  <h3>Supporting colours</h3>
+  <div class="grid g3">
+    <div class="sw-row"><div class="sw" style="background:var(--stone-50)"></div><div class="sw-meta"><b>Stone canvas</b><span>#FAF8F4 · stone-50 — page background</span></div></div>
+    <div class="sw-row"><div class="sw" style="background:#fff;border-color:var(--stone-300)"></div><div class="sw-meta"><b>Surface white</b><span>#FFFFFF · stone-0 — cards, sheets</span></div></div>
+    <div class="sw-row"><div class="sw" style="background:var(--ink)"></div><div class="sw-meta"><b>Ink</b><span>#16181A — primary text, from the wordmark</span></div></div>
+    <div class="sw-row"><div class="sw" style="background:var(--danger-600)"></div><div class="sw-meta"><b>Danger scarlet</b><span>#C42B1C · danger-600 — errors only</span></div></div>
+    <div class="sw-row"><div class="sw" style="background:var(--info-600)"></div><div class="sw-meta"><b>Link blue</b><span>#1158A6 · info-600 — links, information</span></div></div>
+    <div class="sw-row"><div class="sw" style="background:linear-gradient(135deg,#FFD95A,var(--gold-500) 45%,var(--saffron-600))"></div><div class="sw-meta"><b>Sunrise gradient</b><span>marketing surfaces only, never UI chrome</span></div></div>
+  </div>
+
+  <h3>Semantic roles</h3>
+  <table>
+    <tr><th>Role</th><th>Token</th><th>Value</th><th>Used for</th></tr>
+    <tr><td>Primary action</td><td><code>--lk-color-action-primary</code></td><td>gold-500</td><td>Primary buttons, selected controls, active language, progress — the golden thread through every journey</td></tr>
+    <tr><td>On-primary</td><td><code>--lk-color-action-on-primary</code></td><td>ink</td><td>Text and icons on gold. Gold never carries white text (1.87:1 — fails WCAG)</td></tr>
+    <tr><td>Focus ring</td><td><code>--lk-color-focus-ring</code></td><td>ink · gold-500 on dark</td><td>3 px ring, 2 px offset, on every focusable element</td></tr>
+    <tr><td>Success</td><td><code>--lk-color-success-solid</code></td><td>green-700</td><td>Approved, paid, complete, downloaded</td></tr>
+    <tr><td>Warning</td><td><code>gold-50 / gold-400 / gold-900</code></td><td>tints only</td><td>Pending, expiring. Warnings use gold <em>tints</em> so they never read as buttons — solid gold is reserved for actions</td></tr>
+    <tr><td>Danger</td><td><code>--lk-color-danger-solid</code></td><td>danger-600</td><td>Errors, rejection, destructive actions. Never maroon — danger stays distinct from the pillars</td></tr>
+    <tr><td>Information</td><td><code>--lk-color-info-solid</code></td><td>info-600</td><td>Links, neutral notices, help</td></tr>
+    <tr><td>Action needed</td><td><code>saffron-100 / saffron-900</code></td><td>tint + deep text</td><td>Citizen must act — documents missing, payment due</td></tr>
+    <tr><td>Category accents</td><td>the four pillars</td><td>equal status</td><td>Identity &amp; documents = maroon · transport = saffron · payments = gold · agriculture = green</td></tr>
+  </table>
+
+  <h3>Contrast — measured, not estimated</h3>
+  <p class="small">Ratios below are computed from the actual token values. AA requires 4.5:1 for body text, 3:1 for large text (≥24 px or 19 px bold) and non-text UI.</p>
+  <table>
+    <tr><th>Pairing</th><th>Ratio</th><th>Verdict</th></tr>
+    <tr><td>Ink #16181A on white / canvas</td><td>17.8 / 16.78</td><td><span class="pass aaa">AAA</span></td></tr>
+    <tr><td><b>Ink on gold-500 — the primary button</b></td><td>9.54</td><td><span class="pass aaa">AAA</span></td></tr>
+    <tr><td>Ink on gold-600 (primary hover)</td><td>7.14</td><td><span class="pass aaa">AAA</span></td></tr>
+    <tr><td>Ink on gold-700 (primary active)</td><td>4.56</td><td><span class="pass aa">AA</span></td></tr>
+    <tr><td>Gold-800 brand text on white</td><td>6.39</td><td><span class="pass aa">AA</span></td></tr>
+    <tr><td>Ink focus ring on canvas</td><td>16.78</td><td><span class="pass aaa">AAA</span></td></tr>
+    <tr><td>Maroon-600 categorical text on canvas</td><td>8.6</td><td><span class="pass aaa">AAA</span></td></tr>
+    <tr><td>Green-700 on white · white on green-700</td><td>8.37</td><td><span class="pass aaa">AAA</span></td></tr>
+    <tr><td>Link blue info-600 on white</td><td>7.07</td><td><span class="pass aaa">AAA</span></td></tr>
+    <tr><td>Danger-600 on white</td><td>5.66</td><td><span class="pass aa">AA</span></td></tr>
+    <tr><td>Stone-600 secondary text on canvas</td><td>5.37</td><td><span class="pass aa">AA</span></td></tr>
+    <tr><td>Saffron-600 on white</td><td>3.86</td><td><span class="pass lg-only">Large text only</span></td></tr>
+    <tr><td>Saffron-700 on white (small text)</td><td>5.36</td><td><span class="pass aa">AA</span></td></tr>
+    <tr><td>White text on gold-500</td><td>1.87</td><td><span class="pass fail">Forbidden</span></td></tr>
+    <tr><td>Gold-900 on gold-50 (warning text)</td><td>9.72</td><td><span class="pass aaa">AAA</span></td></tr>
+    <tr><td>Dark mode: gold-500 button on #1E1B18</td><td>9.18</td><td><span class="pass aaa">AAA</span></td></tr>
+    <tr><td>Dark mode: #F5F2EC on #141210</td><td>16.72</td><td><span class="pass aaa">AAA</span></td></tr>
+  </table>
+  <div class="alert al-warn" style="margin-top:12px"><div><b>Three hard rules from the maths</b>1&nbsp;· Gold never carries white or light text — every gold surface takes ink (9.54:1 on gold-500). 2&nbsp;· Saffron-600 may carry headlines and graphics, never body text — step down to saffron-700+. 3&nbsp;· The focus ring is ink on light surfaces and gold-500 on dark surfaces — gold alone on light fails 3:1.</div></div>
+
+  <h3>Usage proportion</h3>
+  <p class="small">A government screen is calm paper with deliberate colour. Target proportions: <b>~80%</b> stone neutrals &amp; white · <b>~12%</b> unity gold actions and highlights · <b>~8%</b> pillars as equal category accents. <b>No single community pillar may visually dominate a screen</b> — if a layout starts reading maroon, saffron or green, rebalance it. The full-strength pillar palette appears together only in the brand mark and the national ribbon.</p>
+</section>
+<!-- ============ TYPOGRAPHY ============ -->
+<section id="type">
+  <div class="kick">Foundations</div>
+  <h2>Typography</h2>
+  <p class="lede">One harmonised superfamily across three scripts: <strong>Noto Sans</strong> for Latin, <strong>Noto Sans Sinhala</strong> and <strong>Noto Sans Tamil</strong> — open licensed (OFL), metrically compatible, excellent at small sizes on budget screens, and maintained for the long life a national system demands.</p>
+
+  <div class="spec">
+    <div class="lbl"><span>display-2 · 45/52 · weight 800</span><span>tested in all three scripts</span></div>
+    <div class="tri-spec">
+      <div><span class="tag">Sinhala · සිංහල</span><div lang="si" style="font-size:34px;font-weight:800;line-height:1.4">එක්ව නැගෙන ජාතියක්</div></div>
+      <div><span class="tag">Tamil · தமிழ்</span><div lang="ta" style="font-size:34px;font-weight:800;line-height:1.4">ஒன்றாக உயரும் தேசம்</div></div>
+      <div><span class="tag">English</span><div style="font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1.15">A Nation Rising Together</div></div>
+    </div>
+  </div>
+
+  <h3>Type scale</h3>
+  <table>
+    <tr><th>Style</th><th>Size / line (Latin)</th><th>Weight</th><th>Usage</th></tr>
+    <tr><td><b style="font-size:18px">Display 1</b></td><td>57 / 64</td><td>800</td><td>Landing heroes only</td></tr>
+    <tr><td><b style="font-size:17px">Display 2</b></td><td>45 / 52</td><td>800</td><td>Section heroes, campaign surfaces</td></tr>
+    <tr><td><b>Heading 1</b></td><td>36 / 44</td><td>700</td><td>Page titles — one per page</td></tr>
+    <tr><td><b>Heading 2</b></td><td>28 / 36</td><td>700</td><td>Section titles</td></tr>
+    <tr><td><b>Heading 3</b></td><td>22 / 30</td><td>600</td><td>Card titles, sub-sections</td></tr>
+    <tr><td><b>Heading 4</b></td><td>18 / 26</td><td>600</td><td>List headers, field groups</td></tr>
+    <tr><td>Body large</td><td>18 / 28</td><td>400</td><td>Ledes, service descriptions</td></tr>
+    <tr><td>Body</td><td>16 / 26</td><td>400</td><td>Default. Never smaller for form labels or legal text citizens must read</td></tr>
+    <tr><td>Body small</td><td>14 / 22</td><td>400</td><td>Secondary metadata, helper text</td></tr>
+    <tr><td>Caption</td><td>12 / 18</td><td>500</td><td>Timestamps, footnotes — sparingly</td></tr>
+  </table>
+
+  <h3>Rules for three scripts</h3>
+  <div class="grid g2">
+    <div class="card"><h4 style="margin-top:0">Line height by script</h4><p class="small muted">Sinhala carries stacked diacritics (combuva, papilla, hal kirīma) above and below the baseline; Tamil ligatures also run tall. Body leading: <b>Latin 1.6 · Sinhala 1.75 · Tamil 1.7</b>. Apply via <code>:lang(si)</code> / <code>:lang(ta)</code> — never clip ascenders in fixed-height containers.</p></div>
+    <div class="card"><h4 style="margin-top:0">No capitals, no italics</h4><p class="small muted">Sinhala and Tamil have no case and no italic tradition. <b>Never use all-caps styling or synthetic italics on localised strings.</b> For emphasis use weight (600/700) or colour. Latin overlines/letter-spacing tricks must be disabled when the string is si/ta.</p></div>
+    <div class="card"><h4 style="margin-top:0">Length expansion</h4><p class="small muted">Sinhala and Tamil strings run <b>20–40% longer</b> than English. Design every button, tab and nav label against the longest of the three translations. Truncation of an official term is a defect, not a compromise.</p></div>
+    <div class="card"><h4 style="margin-top:0">Numerals, dates, currency</h4><p class="small muted">Use Latin digits across all three locales (standard practice in Sri Lankan government publishing). Currency: <b>Rs. 1,250.00</b> (LKR). Dates: <b>2026-06-13</b> in data, "13 June 2026 · 2026 ජූනි 13 · 13 ஜூன் 2026" in prose.</p></div>
+  </div>
+
+  <h3>UI strings — the same control in three languages</h3>
+  <table>
+    <tr><th>English</th><th>සිංහල</th><th>தமிழ்</th></tr>
+    <tr><td>Continue</td><td lang="si">ඉදිරියට යන්න</td><td lang="ta">தொடரவும்</td></tr>
+    <tr><td>Apply now</td><td lang="si">දැන් අයදුම් කරන්න</td><td lang="ta">இப்போது விண்ணப்பிக்கவும்</td></tr>
+    <tr><td>Birth certificate</td><td lang="si">උප්පැන්න සහතිකය</td><td lang="ta">பிறப்புச் சான்றிதழ்</td></tr>
+    <tr><td>National Identity Card</td><td lang="si">ජාතික හැඳුනුම්පත</td><td lang="ta">தேசிய அடையாள அட்டை</td></tr>
+    <tr><td>My profile</td><td lang="si">මගේ පැතිකඩ</td><td lang="ta">எனது சுயவிவரம்</td></tr>
+    <tr><td>Search government services</td><td lang="si">රාජ්‍ය සේවා සොයන්න</td><td lang="ta">அரசாங்க சேவைகளைத் தேடுங்கள்</td></tr>
+  </table>
+  <p class="tiny muted">Reference strings are illustrative; final terminology is ratified with the Department of Official Languages before release (see Governance).</p>
+</section>
+
+<!-- ============ LAYOUT ============ -->
+<section id="layout">
+  <div class="kick">Foundations</div>
+  <h2>Spacing &amp; layout</h2>
+  <p class="lede">Everything sits on a 4&nbsp;px base grid, with 8&nbsp;px as the working rhythm. The reference device is a budget Android at 360&nbsp;px — design mobile-first, then earn the desktop.</p>
+
+  <h3>Spacing scale</h3>
+  <div class="card" style="display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;align-items:center;gap:14px"><code style="width:90px;text-align:right">space-1 · 4</code><i style="height:14px;width:4px;background:var(--maroon-600);border-radius:2px;display:block"></i></div>
+    <div style="display:flex;align-items:center;gap:14px"><code style="width:90px;text-align:right">space-2 · 8</code><i style="height:14px;width:8px;background:var(--maroon-600);border-radius:2px;display:block"></i></div>
+    <div style="display:flex;align-items:center;gap:14px"><code style="width:90px;text-align:right">space-3 · 12</code><i style="height:14px;width:12px;background:var(--maroon-500);border-radius:2px;display:block"></i></div>
+    <div style="display:flex;align-items:center;gap:14px"><code style="width:90px;text-align:right">space-4 · 16</code><i style="height:14px;width:16px;background:var(--maroon-500);border-radius:2px;display:block"></i></div>
+    <div style="display:flex;align-items:center;gap:14px"><code style="width:90px;text-align:right">space-6 · 24</code><i style="height:14px;width:24px;background:var(--saffron-600);border-radius:2px;display:block"></i></div>
+    <div style="display:flex;align-items:center;gap:14px"><code style="width:90px;text-align:right">space-8 · 32</code><i style="height:14px;width:32px;background:var(--saffron-500);border-radius:2px;display:block"></i></div>
+    <div style="display:flex;align-items:center;gap:14px"><code style="width:90px;text-align:right">space-12 · 48</code><i style="height:14px;width:48px;background:var(--gold-500);border-radius:2px;display:block"></i></div>
+    <div style="display:flex;align-items:center;gap:14px"><code style="width:90px;text-align:right">space-16 · 64</code><i style="height:14px;width:64px;background:var(--green-600);border-radius:2px;display:block"></i></div>
+    <div style="display:flex;align-items:center;gap:14px"><code style="width:90px;text-align:right">space-24 · 96</code><i style="height:14px;width:96px;background:var(--green-700);border-radius:2px;display:block"></i></div>
+  </div>
+  <p class="small" style="margin-top:10px">Defaults: <b>16</b> inside components · <b>24</b> between related blocks · <b>48–64</b> between page sections. When unsure, go one step larger — generosity reads as trustworthy.</p>
+
+  <h3>Breakpoints &amp; grid</h3>
+  <table>
+    <tr><th>Token</th><th>Range</th><th>Columns</th><th>Margin</th><th>Typical device</th></tr>
+    <tr><td><code>base</code></td><td>0–599</td><td>4 · gutter 16</td><td>16</td><td>Budget Android, the design reference</td></tr>
+    <tr><td><code>sm</code></td><td>600–904</td><td>8 · gutter 24</td><td>32</td><td>Large phones, small tablets</td></tr>
+    <tr><td><code>md</code></td><td>905–1239</td><td>12 · gutter 24</td><td>auto, max 840 content</td><td>Tablets, kiosk portrait</td></tr>
+    <tr><td><code>lg</code></td><td>1240–1439</td><td>12 · gutter 32</td><td>auto, max 1200</td><td>Laptops, office desktops</td></tr>
+    <tr><td><code>xl</code></td><td>1440+</td><td>12 · gutter 32</td><td>auto, max 1200</td><td>Counter-service monitors</td></tr>
+  </table>
+  <p class="small">Reading measure: cap body text at <b>72ch</b>. Forms: single column, max 480&nbsp;px field width — multi-column forms are prohibited (they collapse under trilingual labels and confuse tab order).</p>
+</section>
+
+<!-- ============ SHAPE ============ -->
+<section id="shape">
+  <div class="kick">Foundations</div>
+  <h2>Shape &amp; elevation</h2>
+  <p class="lede">Soft, confident corners — friendly without being playful. Shadows are warm-tinted (ink at low alpha), shallow, and used for hierarchy, not drama.</p>
+  <h3>Corner radius</h3>
+  <div class="grid g3">
+    <div class="card" style="text-align:center"><div style="width:64px;height:64px;border-radius:4px;background:var(--gold-100);border:2px solid var(--gold-700);margin:0 auto 10px"></div><b class="small">xs · 4px</b><div class="tiny muted">chips, tags, table cells</div></div>
+    <div class="card" style="text-align:center"><div style="width:64px;height:64px;border-radius:12px;background:var(--gold-100);border:2px solid var(--gold-700);margin:0 auto 10px"></div><b class="small">md · 12px</b><div class="tiny muted">buttons, inputs — the workhorse</div></div>
+    <div class="card" style="text-align:center"><div style="width:64px;height:64px;border-radius:16px;background:var(--gold-100);border:2px solid var(--gold-700);margin:0 auto 10px"></div><b class="small">lg · 16px</b><div class="tiny muted">cards, list groups</div></div>
+    <div class="card" style="text-align:center"><div style="width:64px;height:64px;border-radius:24px;background:var(--gold-100);border:2px solid var(--gold-700);margin:0 auto 10px"></div><b class="small">xl · 24px</b><div class="tiny muted">sheets, modals, app icon tiles</div></div>
+    <div class="card" style="text-align:center"><div style="width:64px;height:64px;border-radius:999px;background:var(--gold-100);border:2px solid var(--gold-700);margin:0 auto 10px"></div><b class="small">pill · 999px</b><div class="tiny muted">badges, search, language switcher</div></div>
+    <div class="card" style="text-align:center"><div style="width:64px;height:64px;border-radius:50%;background:var(--gold-100);border:2px solid var(--gold-700);margin:0 auto 10px"></div><b class="small">circle</b><div class="tiny muted">avatars, FAB, step dots</div></div>
+  </div>
+  <h3>Elevation</h3>
+  <div class="grid g4">
+    <div class="card" style="box-shadow:var(--sh1)"><b class="small">Level 1</b><div class="tiny muted">resting cards, list rows</div></div>
+    <div class="card" style="box-shadow:var(--sh2)"><b class="small">Level 2</b><div class="tiny muted">raised cards, sticky bars</div></div>
+    <div class="card" style="box-shadow:var(--sh3)"><b class="small">Level 3</b><div class="tiny muted">toasts, menus, popovers</div></div>
+    <div class="card" style="box-shadow:0 16px 48px rgba(28,27,24,.16)"><b class="small">Level 4</b><div class="tiny muted">modals, bottom sheets</div></div>
+  </div>
+  <p class="small" style="margin-top:10px">Motion: 120&nbsp;ms (state changes) · 200&nbsp;ms (standard) · 320&nbsp;ms (sheets/modals), easing <code>cubic-bezier(0.2, 0, 0, 1)</code>. Always honour <code>prefers-reduced-motion</code>.</p>
+</section>
+
+<!-- ============ ICONS ============ -->
+<section id="icons">
+  <div class="kick">Foundations</div>
+  <h2>Iconography</h2>
+  <p class="lede">Outlined, rounded, optimistic. Base library: <strong>Material Symbols Rounded</strong> (open source, variable weight/fill) — extended with a custom national set for concepts the base library can't carry: Grama Niladhari services, samurdhi, paddy land, tuk licensing, pilgrimage passes.</p>
+  <table>
+    <tr><th>Rule</th><th>Specification</th></tr>
+    <tr><td>Grid</td><td>24 × 24 px keylines, 2 px live-area padding</td></tr>
+    <tr><td>Stroke</td><td>2 px, rounded caps and joins — matches the pillar radius language</td></tr>
+    <tr><td>Style</td><td>Outlined at rest · <b>filled for active/selected</b> nav states</td></tr>
+    <tr><td>Sizes</td><td>20 (dense lists) · 24 (default) · 32 (feature) · 46 px tile (service icons on 12 px-radius tinted squares)</td></tr>
+    <tr><td>Colour</td><td>Inherit text colour. Service-category tiles use the four pillars as <b>equal</b> category tints: identity &amp; documents=maroon, payments=gold, agriculture=green, transport=saffron</td></tr>
+    <tr><td>Accessibility</td><td>Icons never appear without a text label except where the label is programmatically present (<code>aria-label</code>) — and never for primary actions</td></tr>
+  </table>
+</section>
+<!-- ============ COMPONENTS ============ -->
+<section id="components">
+  <div class="kick">Build</div>
+  <h2>Components</h2>
+  <p class="lede">Core components, rendered live with the tokens on this page. Every interactive element: 48&nbsp;px minimum touch target, a high-visibility ink focus ring (gold on dark surfaces), and labels authored in three languages.</p>
+
+  <h3>Buttons</h3>
+  <div class="demo">
+    <button class="btn btn-pri">Apply now</button>
+    <button class="btn btn-sec">Save draft</button>
+    <button class="btn btn-ter">Cancel</button>
+    <button class="btn btn-danger">Delete application</button>
+    <button class="btn btn-pri" disabled>Unavailable</button>
+  </div>
+  <div class="demo">
+    <button class="btn btn-pri btn-lg" lang="si">දැන් අයදුම් කරන්න</button>
+    <button class="btn btn-pri" lang="ta">இப்போது விண்ணப்பிக்கவும்</button>
+    <button class="btn btn-pri btn-sm">Continue</button>
+  </div>
+  <table>
+    <tr><th>Variant</th><th>Anatomy</th><th>Rules</th></tr>
+    <tr><td>Primary</td><td>gold-500 fill · <b>ink label</b> · radius 12 · heights 56/48/40</td><td><b>One per view.</b> The single most important action. Hover gold-600, active gold-700 — the label stays ink at every state (9.54 → 4.56:1).</td></tr>
+    <tr><td>Secondary</td><td>2 px ink border, transparent fill, ink label</td><td>Alternative actions beside a primary</td></tr>
+    <tr><td>Tertiary</td><td>ink label, underlined</td><td>Low-stakes actions, card footers</td></tr>
+    <tr><td>Danger</td><td>danger-600 fill, white label</td><td>Destructive only — always behind a confirmation</td></tr>
+    <tr><td>Focus (all)</td><td>3 px ink ring, 2 px offset (gold-500 on dark)</td><td>≥3:1 against every approved surface</td></tr>
+  </table>
+  <p class="small">Tab through the demos above to see the ink focus ring. Gold fill with ink text is the brand handshake — the same pairing as the Sewa spotlight card. Labels are sized against the longest language — note the Sinhala and Tamil buttons hold the same height and radius.</p>
+
+  <h3>Language switcher — the signature control</h3>
+  <div class="demo">
+    <div class="lang-sw" role="group" aria-label="Language">
+      <button lang="si" class="on">සිංහල</button><button lang="ta">தமிழ்</button><button>English</button>
+    </div>
+    <div class="lang-sw" role="group" aria-label="Language compact">
+      <button lang="si" class="on">සිං</button><button lang="ta">த</button><button>EN</button>
+    </div>
+  </div>
+  <p class="small">Present on every screen, top-right (web) or in profile + onboarding (app). Always renders each language <em>in its own script</em> — never "Sinhala, Tamil" in English. Switching is instant, never resets the journey, and persists across all government properties. The active language sits on a gold pill with ink text — the citizen's chosen language is literally golden. Compact form only where space is genuinely constrained.</p>
+
+  <h3>Form fields</h3>
+  <div class="demo col" style="gap:22px">
+    <div class="field">
+      <label for="d1">National Identity Card number <span class="muted" lang="si">ජාතික හැඳුනුම්පත් අංකය</span></label>
+      <div class="hint">12 digits, or 9 digits with a letter — e.g. 200012345678</div>
+      <input id="d1" class="input" placeholder="200012345678">
+    </div>
+    <div class="field err">
+      <label for="d2">Mobile number</label>
+      <input id="d2" class="input" value="07712" aria-invalid="true" aria-describedby="d2e">
+      <div class="errmsg" id="d2e">⚠ Enter the 10-digit mobile number you use, starting 07</div>
+    </div>
+  </div>
+  <table>
+    <tr><th>Rule</th><th>Specification</th></tr>
+    <tr><td>Anatomy</td><td>Label (16/600, never floats) → hint → control 56 px / radius 12 → error below</td></tr>
+    <tr><td>Borders</td><td>1.5 px stone-400 rest · ink border + 3 px ink ring on focus · 2 px danger-600 error</td></tr>
+    <tr><td>Errors</td><td>Say what happened <em>and how to fix it</em>, in the user's language. Never colour alone — icon + text. Keep input visible, never clear it.</td></tr>
+    <tr><td>Forms</td><td>Single column. One topic per page. Mark <em>optional</em> fields, not required ones. Autosave every step — connections drop.</td></tr>
+  </table>
+
+  <h3>Service cards &amp; quick actions</h3>
+  <div class="demo">
+    <a class="svc" href="#components">
+      <div class="ic" style="background:var(--maroon-50);color:var(--maroon-700)">📄</div>
+      <div><b>Birth certificate</b><span lang="si">උප්පැන්න සහතිකය</span></div>
+      <div class="chev">›</div>
+    </a>
+    <a class="svc" href="#components">
+      <div class="ic" style="background:var(--gold-50);color:var(--gold-800)">💳</div>
+      <div><b>Pay vehicle licence</b><span lang="ta">வாகன உரிமம் செலுத்துங்கள்</span></div>
+      <div class="chev">›</div>
+    </a>
+    <a class="svc" href="#components">
+      <div class="ic" style="background:var(--green-50);color:var(--green-700)">🌾</div>
+      <div><b>Fertiliser subsidy</b><span>Apply before 30 June</span></div>
+      <div class="chev">›</div>
+    </a>
+  </div>
+  <p class="small">The core navigation unit of Sewa: 46 px tinted icon tile (category colour at 50-tint), title + one-line context, full-row tap target, chevron affordance. Radius 16, elevation 1, hover elevation 2.</p>
+
+  <h3>Status badges</h3>
+  <div class="demo">
+    <span class="badge b-ok">Approved · අනුමතයි</span>
+    <span class="badge b-pend">Pending · நிலுவையில்</span>
+    <span class="badge b-act">Action needed</span>
+    <span class="badge b-no">Rejected</span>
+    <span class="badge b-draft">Draft</span>
+  </div>
+  <p class="small">The application-status vocabulary is fixed system-wide: <b>Draft → Submitted → Pending → Action needed → Approved / Rejected</b>. Ministries must not invent new status words — consistency here is what makes the super app trustworthy. Dot + tinted pill + deep text (AAA pairs from the colour section).</p>
+
+  <h3>Notifications &amp; alerts</h3>
+  <div class="demo col">
+    <div class="toast" role="status">
+      <div class="t-ic">✓</div>
+      <div><b>Sewa</b><span>Your birth certificate is ready to download.<br><span lang="si" class="tiny">ඔබගේ උප්පැන්න සහතිකය බාගත කිරීමට සූදානම්.</span></span></div>
+      <time>now</time>
+    </div>
+    <div class="alert al-info"><div><b>Counter services closed on Poya day</b> Online services remain available throughout.</div></div>
+    <div class="alert al-ok"><div><b>Payment received — Rs. 1,250.00</b> Receipt #SLG-2026-118843 saved to your documents.</div></div>
+    <div class="alert al-warn"><div><b>Your passport expires in 60 days</b> Renew now to avoid travel disruption.</div></div>
+    <div class="alert al-danger"><div><b>We could not verify your NIC photo</b> Retake the photo in good light, all four corners visible.</div></div>
+  </div>
+  <table>
+    <tr><th>Type</th><th>Behaviour</th></tr>
+    <tr><td>Toast</td><td>Elevation 3, auto-dismiss 6 s (pause on hover/focus), <code>role="status"</code>. Success/confirmation only — never errors.</td></tr>
+    <tr><td>Inline alert</td><td>Persistent until resolved. Danger alerts use <code>role="alert"</code> and are announced immediately.</td></tr>
+    <tr><td>Push / SMS</td><td>Same string in-app, push and SMS. SMS fallback is mandatory for status changes — not every citizen has data on.</td></tr>
+  </table>
+
+  <h3>Progress stepper</h3>
+  <div class="demo">
+    <div class="steps">
+      <div class="step done"><div class="dot">✓</div><b>Identity</b><span>Verified</span></div>
+      <div class="step done"><div class="dot">✓</div><b>Details</b><span>Complete</span></div>
+      <div class="step now"><div class="dot">3</div><b>Documents</b><span>In progress</span></div>
+      <div class="step"><div class="dot">4</div><b>Payment</b><span>Rs. 1,250.00</span></div>
+      <div class="step"><div class="dot">5</div><b>Done</b><span>Certificate issued</span></div>
+    </div>
+  </div>
+  <p class="small">Every multi-step service shows where the citizen is, what's done (green), what's current (gold + halo), what remains (stone). The same component tracks submitted applications — government progress becomes visible, not a black box.</p>
+
+  <h3>Search</h3>
+  <div class="demo">
+    <div class="searchbar">🔍 <span lang="si">රාජ්‍ය සේවා සොයන්න</span> · Search services…</div>
+  </div>
+  <p class="small">Pill shape, 48 px, full-width on mobile. Searches across all three languages simultaneously — a citizen typing in Tamil finds services authored in any language. Voice input affordance on app.</p>
+
+  <h3>Mobile shell — Sewa pattern</h3>
+  <div class="demo" style="justify-content:center;background:linear-gradient(135deg,var(--gold-100),var(--saffron-100))">
+    <div class="phone">
+      <div class="ph-head">
+        <div class="hi" lang="si">ආයුබෝවන් · வணக்கம்</div>
+        <div class="nm">Ayubowan, Nimali</div>
+      </div>
+      <div class="ph-bd">
+        <div class="searchbar" style="height:42px;font-size:13.5px">🔍 Search services…</div>
+        <a class="svc" href="#components" style="min-width:0;padding:12px">
+          <div class="ic" style="background:var(--maroon-50);color:var(--maroon-700);width:38px;height:38px;font-size:17px">📄</div>
+          <div><b style="font-size:14px">My documents</b><span style="font-size:12px">3 ready</span></div><div class="chev">›</div>
+        </a>
+        <a class="svc" href="#components" style="min-width:0;padding:12px">
+          <div class="ic" style="background:var(--gold-50);color:var(--gold-800);width:38px;height:38px;font-size:17px">💳</div>
+          <div><b style="font-size:14px">Payments due</b><span style="font-size:12px">Vehicle licence · Rs. 1,250</span></div><div class="chev">›</div>
+        </a>
+        <div class="toast" style="box-shadow:var(--sh1);padding:10px 12px">
+          <div class="t-ic" style="width:30px;height:30px;font-size:14px">✓</div>
+          <div><b style="font-size:12.5px">Birth certificate ready</b><span style="font-size:11.5px">Tap to download</span></div>
+        </div>
+      </div>
+      <div class="ph-nav">
+        <div class="on"><i>⌂</i>Home</div><div><i>▦</i>Services</div><div><i>▣</i>Scan</div><div><i>🗂</i>Docs</div><div><i>☻</i>Profile</div>
+      </div>
+    </div>
+  </div>
+  <p class="small">App chrome: sunrise header (gold gradient, ink text — 12.9:1 at its lightest) with trilingual greeting, search-first home, quick-action cards, 5-tab bottom nav (centre tab = QR scan for counters and payments). Active tab: filled icon, ink label, gold indicator bar — labels always visible, icon-only nav fails first-time users.</p>
+</section>
+<!-- ============ PATTERNS ============ -->
+<section id="patterns">
+  <div class="kick">Build</div>
+  <h2>Patterns</h2>
+  <p class="lede">Repeatable journeys assembled from components. If a ministry's flow matches one of these, it must use the pattern — divergence requires a design-council exception.</p>
+  <h3>The service journey</h3>
+  <p class="small">Every transactional service follows the same five-act arc, mapped to the stepper: <b>Start page → Identity → Form (one topic per page) → Review &amp; payment → Confirmation</b>.</p>
+  <table>
+    <tr><th>Act</th><th>Requirements</th></tr>
+    <tr><td>1 · Start page</td><td>What you'll get, what you'll need (documents listed up front), fee, processing time. One primary button: "Apply now". Citizens should never discover a missing document at step 4.</td></tr>
+    <tr><td>2 · Identity</td><td>Sign in once via the national digital ID; never re-collect what government already knows ("once-only" principle). Assisted mode lets a Grama Niladhari officer act on a citizen's behalf, visibly logged.</td></tr>
+    <tr><td>3 · Form</td><td>One topic per page · autosave · plain-language questions · resume from SMS link on any device.</td></tr>
+    <tr><td>4 · Review &amp; pay</td><td>Full answer summary with per-item edit links. Fees itemised before payment. Government receipt number issued instantly.</td></tr>
+    <tr><td>5 · Confirmation</td><td>Green confirmation panel, reference number in large type, what happens next + expected date, download/SMS the receipt. Status then trackable in "My applications".</td></tr>
+  </table>
+  <h3>Low-bandwidth &amp; offline</h3>
+  <table>
+    <tr><th>Rule</th><th>Specification</th></tr>
+    <tr><td>Page budget</td><td>≤ 500 KB total transfer per page including fonts (subset per script), images lazy-loaded, no decorative video</td></tr>
+    <tr><td>Offline tolerance</td><td>Drafts persist locally; submission queues and retries; never punish a dropped connection with lost work</td></tr>
+    <tr><td>Degradation</td><td>Core journeys function without JavaScript; enhancement is progressive</td></tr>
+    <tr><td>Channel parity</td><td>Critical notifications mirror to SMS; key services define a USSD/counter equivalent</td></tr>
+  </table>
+  <h3>Errors &amp; empty states</h3>
+  <p class="small">Error pages take responsibility ("We could not load your documents"), offer a retry, a path back home, and the 1919 Government Information Center line for human help. Empty states explain what will appear and offer the first action — never a blank panel.</p>
+</section>
+
+<!-- ============ ACCESSIBILITY ============ -->
+<section id="a11y">
+  <div class="kick">Standards</div>
+  <h2>Accessibility</h2>
+  <p class="lede">WCAG 2.2 Level AA is mandatory for release. These are the non-negotiables audited on every service before it ships.</p>
+  <table>
+    <tr><th>Requirement</th><th>Standard</th></tr>
+    <tr><td>Contrast</td><td>4.5:1 body text · 3:1 large text and UI parts — use only the approved pairs from the colour section</td></tr>
+    <tr><td>Touch targets</td><td>≥ 48 × 48 px with 8 px separation (exceeds WCAG 2.2's 24 px minimum by design)</td></tr>
+    <tr><td>Focus</td><td>Visible on every interactive element: 3 px ink ring, 2 px offset (gold-500 on dark surfaces). Never <code>outline: none</code> without replacement</td></tr>
+    <tr><td>Screen readers</td><td>Correct <code>lang="si" / "ta" / "en"</code> on every string so TalkBack/NVDA switch voices; landmarks, labels, and live regions on status updates</td></tr>
+    <tr><td>Keyboard</td><td>Full journeys completable by keyboard alone; logical tab order; skip links; no keyboard traps</td></tr>
+    <tr><td>Reflow &amp; zoom</td><td>Functional at 400% zoom / 320 px width; text resizes to 200% without loss</td></tr>
+    <tr><td>Motion &amp; time</td><td><code>prefers-reduced-motion</code> honoured; sessions warn before expiry and never expire mid-payment</td></tr>
+    <tr><td>Plain language</td><td>Grade-8 reading level target in all three languages; sentence ≤ 25 words; bureaucratic jargon translated to human terms</td></tr>
+    <tr><td>Assisted use</td><td>Every flow operable by an officer on a citizen's behalf with explicit, logged consent — designed in, not bolted on</td></tr>
+  </table>
+</section>
+
+<!-- ============ CONTENT ============ -->
+<section id="content">
+  <div class="kick">Standards</div>
+  <h2>Content &amp; language</h2>
+  <p class="lede">The voice of Sewa: a capable officer who respects your time. Warm, direct, never bureaucratic, never cute. The state speaks plainly because clarity is a form of respect.</p>
+  <div class="grid g2">
+    <div class="card"><h4 style="margin-top:0">Voice rules</h4>
+      <ul class="small" style="padding-left:18px;display:grid;gap:7px">
+        <li><b>Address the citizen as "you"</b>; government is "we". Active voice: "We will post your certificate" not "The certificate will be dispatched".</li>
+        <li><b>Verbs first on actions:</b> "Apply now", "Download receipt", "Track application".</li>
+        <li><b>No abbreviations</b> a first-time user wouldn't know; expand on first use (Grama Niladhari (GN)).</li>
+        <li><b>Honest about time:</b> "Usually 3 working days" beats silence; if delayed, say so and why.</li>
+      </ul></div>
+    <div class="card"><h4 style="margin-top:0">Trilingual parity</h4>
+      <ul class="small" style="padding-left:18px;display:grid;gap:7px">
+        <li>All three languages are authored together at the same release — Sinhala and Tamil are never "translation debt".</li>
+        <li>Terminology follows the Department of Official Languages glossary; new coinages are ratified before release.</li>
+        <li>Translations are reviewed by native speakers in context (on the screen), not in a spreadsheet.</li>
+        <li>Proper nouns (Sewa, place names) keep native script forms beside Latin where space allows.</li>
+      </ul></div>
+  </div>
+  <h3>Microcopy reference</h3>
+  <table>
+    <tr><th>Moment</th><th>Write this</th><th>Not this</th></tr>
+    <tr><td>Submission success</td><td>"Application submitted. Your reference: SLG-2026-118843. We'll SMS you within 3 working days."</td><td>"Your request has been successfully processed by the system."</td></tr>
+    <tr><td>Error, user-fixable</td><td>"Enter the 10-digit mobile number you use, starting 07."</td><td>"Invalid input."</td></tr>
+    <tr><td>Error, our fault</td><td>"Something went wrong on our side. Your draft is saved — try again in a few minutes, or call 1919."</td><td>"Error 500."</td></tr>
+    <tr><td>Fees</td><td>"Fee: Rs. 1,250.00 (includes postage)"</td><td>"Charges may apply as per gazette."</td></tr>
+  </table>
+</section>
+
+<!-- ============ TOKENS ============ -->
+<section id="tokens">
+  <div class="kick">Standards</div>
+  <h2>Design tokens</h2>
+  <p class="lede">Tokens are the single source of truth, named in three layers so a ministry can re-theme nothing and rebuild everything: <code>core</code> (raw values) → <code>semantic</code> (meaning) → <code>component</code> (application).</p>
+<pre><span class="c">/* layer 1 — core: the fact */</span>
+<span class="k">--lk-gold-500</span>: <span class="v">#F0B41E</span>;
+
+<span class="c">/* layer 2 — semantic: the meaning (what teams use) */</span>
+<span class="k">--lk-color-action-primary</span>: <span class="v">var(--lk-gold-500)</span>;
+<span class="k">--lk-color-action-on-primary</span>: <span class="v">var(--lk-ink)</span>; <span class="c">/* never white on gold */</span>
+
+<span class="c">/* layer 3 — component: the application */</span>
+<span class="k">--lk-button-primary-bg</span>: <span class="v">var(--lk-color-action-primary)</span>;
+
+<span class="c">/* scripts get correct metrics via lang attributes */</span>
+:lang(si) { <span class="k">font-family</span>: <span class="v">var(--lk-font-sinhala)</span>; <span class="k">line-height</span>: <span class="v">1.75</span>; }</pre>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="dlcard"><div class="ic">CSS</div><div><b class="small">lankads-tokens.css</b><div class="tiny muted">Custom properties · light + dark themes · script helpers</div></div></div>
+    <div class="dlcard"><div class="ic">JSON</div><div><b class="small">lankads-tokens.json</b><div class="tiny muted">W3C design-tokens format · pipe into Style Dictionary for iOS, Android, Flutter, Figma</div></div></div>
+  </div>
+  <p class="small" style="margin-top:12px">Both files accompany this document. Naming convention: <code>--lk-{category}-{concept}-{variant}</code>. Teams build against <b>semantic</b> tokens only; core values may be tuned centrally without breaking products. Dark theme ships as <code>[data-lk-theme="dark"]</code> — app-first, opt-in on web.</p>
+</section>
+
+<!-- ============ GOVERNANCE ============ -->
+<section id="governance">
+  <div class="kick">Standards</div>
+  <h2>Governance &amp; roadmap</h2>
+  <p class="lede">A design system is a product with users — its users are ministry teams. It needs ownership, versioning and a front door.</p>
+  <table>
+    <tr><th>Mechanism</th><th>How it works</th></tr>
+    <tr><td>Ownership</td><td>A core systems team inside GovTech owns tokens, components and this documentation; a cross-ministry design council reviews proposals monthly</td></tr>
+    <tr><td>Versioning</td><td>Semantic versioning. Patch = fixes · minor = additive components · major = breaking token changes with 6-month migration windows. Nothing breaks a live citizen service unannounced</td></tr>
+    <tr><td>Contribution</td><td>Any ministry may propose a component with evidence of need in ≥ 2 services; the core team generalises, names, documents, tests, and ships it for everyone</td></tr>
+    <tr><td>Compliance</td><td>Pre-release service assessment: token usage, WCAG 2.2 AA audit, trilingual review, page-weight budget, status-vocabulary check</td></tr>
+    <tr><td>Distribution</td><td>Figma libraries, npm web components, Flutter/Compose/SwiftUI packages — all generated from the same token source</td></tr>
+  </table>
+  <h3>Suggested roadmap</h3>
+  <table>
+    <tr><th>Phase</th><th>Scope</th></tr>
+    <tr><td><b>1 · Foundation</b> (now)</td><td>Ratify tokens, colour accessibility rules and trilingual type with GovTech + Dept. of Official Languages; publish Figma core library; pilot on two Sewa journeys (birth certificate, vehicle licence)</td></tr>
+    <tr><td><b>2 · Components</b></td><td>Ship coded component library (web + Flutter); migrate Sewa home, identity and payments; stand up the service assessment</td></tr>
+    <tr><td><b>3 · Scale</b></td><td>Onboard ministry portals; dark theme GA; custom national icon set; USSD/SMS content standards; public changelog and community channel</td></tr>
+  </table>
+  <footer>
+    <div style="height:6px;background:var(--ribbon);border-radius:3px;margin-bottom:18px"></div>
+    <b>LankaDS v1.1 — draft for review.</b> Philosophy: easy access · inclusivity · citizen first. v1.1 adopts the <b>Unity Gold</b> primary so no single community's colour leads the state's interface. Prepared for the GovTech digital transformation programme · Brand colours sampled from the official Sewa mark · Contrast ratios computed against WCAG 2.2 · Sinhala/Tamil reference strings pending ratification by the Department of Official Languages.<br><br>
+    <span lang="si">එක ජාතියක්. එක යෙදුමක්.</span> · <span lang="ta">ஒரு தேசம். ஒரு செயலி.</span> · One Nation. One App.
+  </footer>
+</section>
+</main>
+</div>
+<script>
+const links=[...document.querySelectorAll('.toc a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const spy=()=>{let i=secs.findLastIndex(s=>s&&s.getBoundingClientRect().top<140);if(i<0)i=0;links.forEach((a,j)=>a.classList.toggle('on',j===i))};
+document.addEventListener('scroll',spy,{passive:true});spy();
+document.querySelectorAll('.ramp i').forEach(s=>{s.addEventListener('click',()=>{navigator.clipboard&&navigator.clipboard.writeText(s.dataset.hex)})});
+</script>
+</body>
+</html>

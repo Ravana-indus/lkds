@@ -1,0 +1,309 @@
+/* ============================================================
+   LankaDS — Sri Lanka National Design System
+   Design Tokens v1.1.0 (CSS Custom Properties)
+   Brand anchor: Sewa national super app
+   Prefix: --lk-
+   Generated 2026-06-13 · GovTech Sri Lanka digital transformation
+
+   v1.1 — UNITY GOLD LEADS. Primary actions are gold-500 with ink
+   text (9.54:1 AAA). The four pillar colours hold equal categorical
+   status; no single community's colour leads the interface.
+   Gold NEVER carries white/light text (1.87:1 — fails WCAG).
+   ============================================================ */
+
+:root {
+  /* ----------------------------------------------------------
+     1. CORE · COLOR PRIMITIVES
+     The four pillars — colours of the national flag,
+     sampled from the Sewa brand mark.
+     ---------------------------------------------------------- */
+
+  /* Maroon — heritage pillar; equal categorical accent (never the lead) */
+  --lk-maroon-50:  #FBEEF2;
+  --lk-maroon-100: #F6DBE3;
+  --lk-maroon-200: #EDB7C6;
+  --lk-maroon-300: #DE89A1;
+  --lk-maroon-400: #C9577C;
+  --lk-maroon-500: #AB2F58;
+  --lk-maroon-600: #8D153A;  /* ★ brand maroon */
+  --lk-maroon-700: #750E30;
+  --lk-maroon-800: #5C0A26;
+  --lk-maroon-900: #44071D;
+  --lk-maroon-950: #2E0413;
+
+  /* Saffron — energy & progress */
+  --lk-saffron-50:  #FEF3EA;
+  --lk-saffron-100: #FCE3D1;
+  --lk-saffron-200: #F8C5A3;
+  --lk-saffron-300: #F3A06C;
+  --lk-saffron-400: #EB7A38;
+  --lk-saffron-500: #E96A1C;
+  --lk-saffron-600: #DC580A;  /* ★ brand saffron */
+  --lk-saffron-700: #B84608;
+  --lk-saffron-800: #913606;
+  --lk-saffron-900: #6B2704;
+  --lk-saffron-950: #471903;
+
+  /* Gold — unity; THE primary action colour (always with ink text) */
+  --lk-gold-50:  #FEF9EB;
+  --lk-gold-100: #FDF0CE;
+  --lk-gold-200: #FAE19D;
+  --lk-gold-300: #F7CF63;
+  --lk-gold-400: #F3C13B;
+  --lk-gold-500: #F0B41E;  /* ★ brand gold */
+  --lk-gold-600: #D49A0E;
+  --lk-gold-700: #A97809;
+  --lk-gold-800: #7E5807;
+  --lk-gold-900: #573C05;
+  --lk-gold-950: #3A2803;
+
+  /* Green — growth & success */
+  --lk-green-50:  #EAF7EF;
+  --lk-green-100: #D2EEDD;
+  --lk-green-200: #A6DEBB;
+  --lk-green-300: #72C893;
+  --lk-green-400: #3FAE6C;
+  --lk-green-500: #18954F;
+  --lk-green-600: #07763D;
+  --lk-green-700: #005A32;  /* ★ brand green */
+  --lk-green-800: #00472A;
+  --lk-green-900: #003520;
+  --lk-green-950: #002416;
+
+  /* Stone — warm neutrals (paper of the system) */
+  --lk-stone-0:   #FFFFFF;
+  --lk-stone-25:  #FDFCF9;
+  --lk-stone-50:  #FAF8F4;  /* ★ canvas */
+  --lk-stone-100: #F3F1EC;
+  --lk-stone-200: #E7E4DD;
+  --lk-stone-300: #D5D1C8;
+  --lk-stone-400: #B3AEA3;
+  --lk-stone-500: #8A857B;
+  --lk-stone-600: #6B665D;
+  --lk-stone-700: #4F4B44;
+  --lk-stone-800: #33302B;
+  --lk-stone-900: #1F1D19;
+  --lk-stone-950: #14130F;
+  --lk-ink:       #16181A;  /* ★ wordmark ink */
+
+  /* Danger — scarlet (deliberately distinct from brand maroon) */
+  --lk-danger-50:  #FCEDEB;
+  --lk-danger-100: #F9D9D5;
+  --lk-danger-200: #F2B3AB;
+  --lk-danger-300: #E9867A;
+  --lk-danger-400: #DC5546;
+  --lk-danger-500: #CE3A28;
+  --lk-danger-600: #C42B1C;
+  --lk-danger-700: #A02114;
+  --lk-danger-800: #7C180E;
+  --lk-danger-900: #5A1009;
+
+  /* Info / link blue */
+  --lk-info-50:  #EDF4FC;
+  --lk-info-100: #D7E6F8;
+  --lk-info-200: #AFCDF1;
+  --lk-info-300: #7FAEE6;
+  --lk-info-400: #4E8CD6;
+  --lk-info-500: #2A70C2;
+  --lk-info-600: #1158A6;
+  --lk-info-700: #0C4685;
+  --lk-info-800: #093565;
+  --lk-info-900: #062546;
+
+  /* ----------------------------------------------------------
+     2. SEMANTIC · COLOR (light theme)
+     ---------------------------------------------------------- */
+  --lk-color-bg-canvas:        var(--lk-stone-50);
+  --lk-color-bg-surface:       var(--lk-stone-0);
+  --lk-color-bg-surface-warm:  var(--lk-stone-25);
+  --lk-color-bg-sunken:        var(--lk-stone-100);
+  --lk-color-bg-inverse:       var(--lk-stone-900);
+
+  --lk-color-text-primary:     var(--lk-ink);
+  --lk-color-text-secondary:   var(--lk-stone-600);
+  --lk-color-text-tertiary:    var(--lk-stone-500);
+  --lk-color-text-inverse:     #FFFFFF;
+  --lk-color-text-brand:       var(--lk-gold-800);   /* 6.39:1 on white */
+  --lk-color-text-link:        var(--lk-info-600);
+  --lk-color-text-link-visited:#6D4396;
+
+  --lk-color-border-default:   var(--lk-stone-200);
+  --lk-color-border-strong:    var(--lk-stone-400);
+  --lk-color-border-input:     var(--lk-stone-400);
+
+  --lk-color-action-primary:        var(--lk-gold-500);   /* unity gold */
+  --lk-color-action-primary-hover:  var(--lk-gold-600);
+  --lk-color-action-primary-active: var(--lk-gold-700);
+  --lk-color-action-secondary:      transparent;          /* + 2px ink border */
+  --lk-color-action-on-primary:     var(--lk-ink);        /* gold never carries light text */
+
+  --lk-color-focus-ring:       var(--lk-ink);   /* light theme; dark theme overrides to gold */
+  --lk-color-focus-text:       var(--lk-ink);
+
+  --lk-color-success-bg:       var(--lk-green-50);
+  --lk-color-success-border:   var(--lk-green-300);
+  --lk-color-success-text:     var(--lk-green-800);
+  --lk-color-success-solid:    var(--lk-green-700);
+
+  --lk-color-warning-bg:       var(--lk-gold-50);
+  --lk-color-warning-border:   var(--lk-gold-400);
+  --lk-color-warning-text:     var(--lk-gold-900);
+  --lk-color-warning-solid:    var(--lk-gold-600);
+
+  --lk-color-danger-bg:        var(--lk-danger-50);
+  --lk-color-danger-border:    var(--lk-danger-300);
+  --lk-color-danger-text:      var(--lk-danger-800);
+  --lk-color-danger-solid:     var(--lk-danger-600);
+
+  --lk-color-info-bg:          var(--lk-info-50);
+  --lk-color-info-border:      var(--lk-info-300);
+  --lk-color-info-text:        var(--lk-info-800);
+  --lk-color-info-solid:       var(--lk-info-600);
+
+  /* National ribbon — the four pillars, in flag order */
+  --lk-gradient-ribbon: linear-gradient(90deg,
+      var(--lk-green-700) 0%,   var(--lk-green-700) 25%,
+      var(--lk-saffron-600) 25%, var(--lk-saffron-600) 50%,
+      var(--lk-maroon-600) 50%,  var(--lk-maroon-600) 75%,
+      var(--lk-gold-500) 75%,    var(--lk-gold-500) 100%);
+  --lk-gradient-sunrise: linear-gradient(135deg, #FFD95A 0%, var(--lk-gold-500) 45%, var(--lk-saffron-600) 100%);
+
+  /* ----------------------------------------------------------
+     3. TYPOGRAPHY
+     One harmonised superfamily across three scripts.
+     ---------------------------------------------------------- */
+  --lk-font-latin:   "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --lk-font-sinhala: "Noto Sans Sinhala", "Iskoola Pota", sans-serif;
+  --lk-font-tamil:   "Noto Sans Tamil", "Latha", sans-serif;
+  --lk-font-stack:   "Noto Sans", "Noto Sans Sinhala", "Noto Sans Tamil", system-ui, sans-serif;
+  --lk-font-mono:    "Noto Sans Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --lk-font-weight-regular: 400;
+  --lk-font-weight-medium:  500;
+  --lk-font-weight-semibold:600;
+  --lk-font-weight-bold:    700;
+  --lk-font-weight-display: 800;
+
+  /* Scale — latin sizes; Sinhala & Tamil inherit size, gain line-height */
+  --lk-type-display-1-size: 3.5625rem; --lk-type-display-1-line: 4rem;     /* 57/64 */
+  --lk-type-display-2-size: 2.8125rem; --lk-type-display-2-line: 3.25rem;  /* 45/52 */
+  --lk-type-h1-size: 2.25rem;  --lk-type-h1-line: 2.75rem;  /* 36/44 */
+  --lk-type-h2-size: 1.75rem;  --lk-type-h2-line: 2.25rem;  /* 28/36 */
+  --lk-type-h3-size: 1.375rem; --lk-type-h3-line: 1.875rem; /* 22/30 */
+  --lk-type-h4-size: 1.125rem; --lk-type-h4-line: 1.625rem; /* 18/26 */
+  --lk-type-body-lg-size: 1.125rem; --lk-type-body-lg-line: 1.75rem;  /* 18/28 */
+  --lk-type-body-size: 1rem;        --lk-type-body-line: 1.625rem;    /* 16/26 */
+  --lk-type-body-sm-size: 0.875rem; --lk-type-body-sm-line: 1.375rem; /* 14/22 */
+  --lk-type-caption-size: 0.75rem;  --lk-type-caption-line: 1.125rem; /* 12/18 */
+
+  /* Script line-height multipliers (apply to body copy) */
+  --lk-type-leading-latin:   1.6;
+  --lk-type-leading-sinhala: 1.75;  /* taller — stacked diacritics */
+  --lk-type-leading-tamil:   1.7;
+
+  /* ----------------------------------------------------------
+     4. SPACE · SIZE · SHAPE
+     ---------------------------------------------------------- */
+  --lk-space-0:  0;
+  --lk-space-1:  0.25rem;  /*  4 */
+  --lk-space-2:  0.5rem;   /*  8 */
+  --lk-space-3:  0.75rem;  /* 12 */
+  --lk-space-4:  1rem;     /* 16 */
+  --lk-space-5:  1.25rem;  /* 20 */
+  --lk-space-6:  1.5rem;   /* 24 */
+  --lk-space-8:  2rem;     /* 32 */
+  --lk-space-10: 2.5rem;   /* 40 */
+  --lk-space-12: 3rem;     /* 48 */
+  --lk-space-16: 4rem;     /* 64 */
+  --lk-space-20: 5rem;     /* 80 */
+  --lk-space-24: 6rem;     /* 96 */
+
+  --lk-radius-xs:   0.25rem;  /*  4 — chips, tags */
+  --lk-radius-sm:   0.5rem;   /*  8 — inputs (compact) */
+  --lk-radius-md:   0.75rem;  /* 12 — buttons, inputs */
+  --lk-radius-lg:   1rem;     /* 16 — cards */
+  --lk-radius-xl:   1.5rem;   /* 24 — sheets, modals */
+  --lk-radius-pill: 62.4375rem;
+  --lk-radius-circle: 50%;
+
+  --lk-size-touch-target: 3rem;      /* 48px minimum */
+  --lk-size-control-sm: 2.5rem;      /* 40 */
+  --lk-size-control-md: 3rem;        /* 48 */
+  --lk-size-control-lg: 3.5rem;      /* 56 */
+  --lk-size-icon-sm: 1.25rem;        /* 20 */
+  --lk-size-icon-md: 1.5rem;         /* 24 */
+  --lk-size-icon-lg: 2rem;           /* 32 */
+
+  /* ----------------------------------------------------------
+     5. ELEVATION · MOTION · LAYOUT
+     ---------------------------------------------------------- */
+  --lk-shadow-1: 0 1px 2px rgba(28,27,24,.06), 0 1px 3px rgba(28,27,24,.08);
+  --lk-shadow-2: 0 2px 6px rgba(28,27,24,.07), 0 4px 12px rgba(28,27,24,.08);
+  --lk-shadow-3: 0 8px 24px rgba(28,27,24,.12);
+  --lk-shadow-4: 0 16px 48px rgba(28,27,24,.16);
+  --lk-focus-ring: 0 0 0 3px var(--lk-color-focus-ring);
+
+  --lk-motion-fast:     120ms;
+  --lk-motion-standard: 200ms;
+  --lk-motion-slow:     320ms;
+  --lk-motion-ease:     cubic-bezier(0.2, 0, 0, 1);
+
+  --lk-breakpoint-sm: 37.5rem;   /* 600  */
+  --lk-breakpoint-md: 56.5625rem;/* 905  */
+  --lk-breakpoint-lg: 77.5rem;   /* 1240 */
+  --lk-breakpoint-xl: 90rem;     /* 1440 */
+  --lk-container-max: 75rem;     /* 1200 */
+  --lk-z-nav: 100; --lk-z-sheet: 200; --lk-z-modal: 300; --lk-z-toast: 400;
+}
+
+/* ----------------------------------------------------------
+   6. DARK THEME — opt-in via [data-lk-theme="dark"]
+   ---------------------------------------------------------- */
+[data-lk-theme="dark"] {
+  --lk-color-bg-canvas:       #141210;
+  --lk-color-bg-surface:      #1E1B18;
+  --lk-color-bg-surface-warm: #242019;
+  --lk-color-bg-sunken:       #0E0D0B;
+  --lk-color-bg-inverse:      var(--lk-stone-50);
+
+  --lk-color-text-primary:    #F5F2EC;
+  --lk-color-text-secondary:  #B9B3A8;
+  --lk-color-text-tertiary:   #8A857B;
+  --lk-color-text-inverse:    var(--lk-ink);
+  --lk-color-text-brand:      var(--lk-gold-300);
+  --lk-color-text-link:       var(--lk-info-300);
+  --lk-color-focus-ring:      var(--lk-gold-500);   /* gold focus on dark: 9.18:1 */
+
+  --lk-color-border-default:  #38342E;
+  --lk-color-border-strong:   #57524A;
+  --lk-color-border-input:    #6B665D;
+
+  --lk-color-action-primary:        var(--lk-gold-500);   /* + ink text, 9.18:1 on dark */
+  --lk-color-action-primary-hover:  var(--lk-gold-400);
+  --lk-color-action-primary-active: var(--lk-gold-300);
+
+  --lk-color-success-bg:     #0E2418;
+  --lk-color-success-border: var(--lk-green-800);
+  --lk-color-success-text:   var(--lk-green-200);
+  --lk-color-warning-bg:     #2A2008;
+  --lk-color-warning-border: var(--lk-gold-800);
+  --lk-color-warning-text:   var(--lk-gold-200);
+  --lk-color-danger-bg:      #2C100B;
+  --lk-color-danger-border:  var(--lk-danger-800);
+  --lk-color-danger-text:    var(--lk-danger-200);
+  --lk-color-info-bg:        #0D1B2C;
+  --lk-color-info-border:    var(--lk-info-800);
+  --lk-color-info-text:      var(--lk-info-200);
+
+  --lk-shadow-1: 0 1px 2px rgba(0,0,0,.4);
+  --lk-shadow-2: 0 2px 8px rgba(0,0,0,.5);
+  --lk-shadow-3: 0 8px 24px rgba(0,0,0,.55);
+  --lk-shadow-4: 0 16px 48px rgba(0,0,0,.6);
+}
+
+/* ----------------------------------------------------------
+   7. SCRIPT HELPERS
+   Apply lang attributes; these utilities tune metrics.
+   ---------------------------------------------------------- */
+:lang(si) { font-family: var(--lk-font-sinhala); line-height: var(--lk-type-leading-sinhala); letter-spacing: 0; text-transform: none; }
+:lang(ta) { font-family: var(--lk-font-tamil);   line-height: var(--lk-type-leading-tamil);   letter-spacing: 0; text-transform: none; }

@@ -1,0 +1,186 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "LankaDS — Sri Lanka National Design System",
+  "version": "1.1.0",
+  "description": "Design tokens for the Sri Lanka Government national design system, anchored to the Sewa super app brand. Colours sampled from the Sewa brand mark; the four pillars carry the colours of the national flag and hold equal categorical status. v1.1: Unity Gold leads — primary actions are gold-500 with ink text (9.54:1 AAA); no single community's colour leads the interface. Gold never carries white/light text.",
+  "color": {
+    "maroon": {
+      "50": { "$value": "#FBEEF2", "$type": "color" },
+      "100": { "$value": "#F6DBE3", "$type": "color" },
+      "200": { "$value": "#EDB7C6", "$type": "color" },
+      "300": { "$value": "#DE89A1", "$type": "color" },
+      "400": { "$value": "#C9577C", "$type": "color" },
+      "500": { "$value": "#AB2F58", "$type": "color" },
+      "600": { "$value": "#8D153A", "$type": "color", "$description": "Brand maroon — heritage pillar, sampled from Sewa mark. Equal categorical accent; deliberately not the primary action colour" },
+      "700": { "$value": "#750E30", "$type": "color" },
+      "800": { "$value": "#5C0A26", "$type": "color" },
+      "900": { "$value": "#44071D", "$type": "color" },
+      "950": { "$value": "#2E0413", "$type": "color" }
+    },
+    "saffron": {
+      "50": { "$value": "#FEF3EA", "$type": "color" },
+      "100": { "$value": "#FCE3D1", "$type": "color" },
+      "200": { "$value": "#F8C5A3", "$type": "color" },
+      "300": { "$value": "#F3A06C", "$type": "color" },
+      "400": { "$value": "#EB7A38", "$type": "color" },
+      "500": { "$value": "#E96A1C", "$type": "color" },
+      "600": { "$value": "#DC580A", "$type": "color", "$description": "Brand saffron — energy and progress" },
+      "700": { "$value": "#B84608", "$type": "color" },
+      "800": { "$value": "#913606", "$type": "color" },
+      "900": { "$value": "#6B2704", "$type": "color" },
+      "950": { "$value": "#471903", "$type": "color" }
+    },
+    "gold": {
+      "50": { "$value": "#FEF9EB", "$type": "color" },
+      "100": { "$value": "#FDF0CE", "$type": "color" },
+      "200": { "$value": "#FAE19D", "$type": "color" },
+      "300": { "$value": "#F7CF63", "$type": "color" },
+      "400": { "$value": "#F3C13B", "$type": "color" },
+      "500": { "$value": "#F0B41E", "$type": "color", "$description": "Brand gold — unity; THE primary action colour. Always paired with ink text (9.54:1 AAA); never carries white/light text" },
+      "600": { "$value": "#D49A0E", "$type": "color" },
+      "700": { "$value": "#A97809", "$type": "color" },
+      "800": { "$value": "#7E5807", "$type": "color" },
+      "900": { "$value": "#573C05", "$type": "color" },
+      "950": { "$value": "#3A2803", "$type": "color" }
+    },
+    "green": {
+      "50": { "$value": "#EAF7EF", "$type": "color" },
+      "100": { "$value": "#D2EEDD", "$type": "color" },
+      "200": { "$value": "#A6DEBB", "$type": "color" },
+      "300": { "$value": "#72C893", "$type": "color" },
+      "400": { "$value": "#3FAE6C", "$type": "color" },
+      "500": { "$value": "#18954F", "$type": "color" },
+      "600": { "$value": "#07763D", "$type": "color" },
+      "700": { "$value": "#005A32", "$type": "color", "$description": "Brand green — growth and success" },
+      "800": { "$value": "#00472A", "$type": "color" },
+      "900": { "$value": "#003520", "$type": "color" },
+      "950": { "$value": "#002416", "$type": "color" }
+    },
+    "stone": {
+      "0": { "$value": "#FFFFFF", "$type": "color" },
+      "25": { "$value": "#FDFCF9", "$type": "color" },
+      "50": { "$value": "#FAF8F4", "$type": "color", "$description": "Canvas — warm paper white sampled from brand sheet" },
+      "100": { "$value": "#F3F1EC", "$type": "color" },
+      "200": { "$value": "#E7E4DD", "$type": "color" },
+      "300": { "$value": "#D5D1C8", "$type": "color" },
+      "400": { "$value": "#B3AEA3", "$type": "color" },
+      "500": { "$value": "#8A857B", "$type": "color" },
+      "600": { "$value": "#6B665D", "$type": "color" },
+      "700": { "$value": "#4F4B44", "$type": "color" },
+      "800": { "$value": "#33302B", "$type": "color" },
+      "900": { "$value": "#1F1D19", "$type": "color" },
+      "950": { "$value": "#14130F", "$type": "color" }
+    },
+    "ink": { "$value": "#16181A", "$type": "color", "$description": "Primary text — sampled from Sewa wordmark" },
+    "danger": {
+      "50": { "$value": "#FCEDEB", "$type": "color" },
+      "100": { "$value": "#F9D9D5", "$type": "color" },
+      "200": { "$value": "#F2B3AB", "$type": "color" },
+      "300": { "$value": "#E9867A", "$type": "color" },
+      "400": { "$value": "#DC5546", "$type": "color" },
+      "500": { "$value": "#CE3A28", "$type": "color" },
+      "600": { "$value": "#C42B1C", "$type": "color", "$description": "Error scarlet — deliberately distinct from brand maroon" },
+      "700": { "$value": "#A02114", "$type": "color" },
+      "800": { "$value": "#7C180E", "$type": "color" },
+      "900": { "$value": "#5A1009", "$type": "color" }
+    },
+    "info": {
+      "50": { "$value": "#EDF4FC", "$type": "color" },
+      "100": { "$value": "#D7E6F8", "$type": "color" },
+      "200": { "$value": "#AFCDF1", "$type": "color" },
+      "300": { "$value": "#7FAEE6", "$type": "color" },
+      "400": { "$value": "#4E8CD6", "$type": "color" },
+      "500": { "$value": "#2A70C2", "$type": "color" },
+      "600": { "$value": "#1158A6", "$type": "color", "$description": "Link and informational blue" },
+      "700": { "$value": "#0C4685", "$type": "color" },
+      "800": { "$value": "#093565", "$type": "color" },
+      "900": { "$value": "#062546", "$type": "color" }
+    },
+    "semantic": {
+      "bg-canvas": { "$value": "{color.stone.50}", "$type": "color" },
+      "bg-surface": { "$value": "{color.stone.0}", "$type": "color" },
+      "bg-sunken": { "$value": "{color.stone.100}", "$type": "color" },
+      "text-primary": { "$value": "{color.ink}", "$type": "color" },
+      "text-secondary": { "$value": "{color.stone.600}", "$type": "color" },
+      "text-brand": { "$value": "{color.gold.800}", "$type": "color", "$description": "6.39:1 on white" },
+      "text-link": { "$value": "{color.info.600}", "$type": "color" },
+      "border-default": { "$value": "{color.stone.200}", "$type": "color" },
+      "border-input": { "$value": "{color.stone.400}", "$type": "color" },
+      "action-primary": { "$value": "{color.gold.500}", "$type": "color", "$description": "Unity gold — primary actions" },
+      "action-primary-hover": { "$value": "{color.gold.600}", "$type": "color" },
+      "action-primary-active": { "$value": "{color.gold.700}", "$type": "color" },
+      "action-on-primary": { "$value": "{color.ink}", "$type": "color", "$description": "Text/icons on gold — never white" },
+      "focus-ring": { "$value": "{color.ink}", "$type": "color", "$description": "Light theme. Dark theme overrides to gold.500 (9.18:1)" },
+      "success-solid": { "$value": "{color.green.700}", "$type": "color" },
+      "warning-solid": { "$value": "{color.gold.600}", "$type": "color" },
+      "danger-solid": { "$value": "{color.danger.600}", "$type": "color" },
+      "info-solid": { "$value": "{color.info.600}", "$type": "color" }
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "latin": { "$value": "Noto Sans", "$type": "fontFamily" },
+      "sinhala": { "$value": "Noto Sans Sinhala", "$type": "fontFamily" },
+      "tamil": { "$value": "Noto Sans Tamil", "$type": "fontFamily" },
+      "mono": { "$value": "Noto Sans Mono", "$type": "fontFamily" }
+    },
+    "fontWeight": {
+      "regular": { "$value": 400, "$type": "fontWeight" },
+      "medium": { "$value": 500, "$type": "fontWeight" },
+      "semibold": { "$value": 600, "$type": "fontWeight" },
+      "bold": { "$value": 700, "$type": "fontWeight" },
+      "display": { "$value": 800, "$type": "fontWeight" }
+    },
+    "scale": {
+      "display-1": { "fontSize": { "$value": "57px" }, "lineHeight": { "$value": "64px" }, "weight": { "$value": 800 } },
+      "display-2": { "fontSize": { "$value": "45px" }, "lineHeight": { "$value": "52px" }, "weight": { "$value": 800 } },
+      "h1": { "fontSize": { "$value": "36px" }, "lineHeight": { "$value": "44px" }, "weight": { "$value": 700 } },
+      "h2": { "fontSize": { "$value": "28px" }, "lineHeight": { "$value": "36px" }, "weight": { "$value": 700 } },
+      "h3": { "fontSize": { "$value": "22px" }, "lineHeight": { "$value": "30px" }, "weight": { "$value": 600 } },
+      "h4": { "fontSize": { "$value": "18px" }, "lineHeight": { "$value": "26px" }, "weight": { "$value": 600 } },
+      "body-lg": { "fontSize": { "$value": "18px" }, "lineHeight": { "$value": "28px" }, "weight": { "$value": 400 } },
+      "body": { "fontSize": { "$value": "16px" }, "lineHeight": { "$value": "26px" }, "weight": { "$value": 400 } },
+      "body-sm": { "fontSize": { "$value": "14px" }, "lineHeight": { "$value": "22px" }, "weight": { "$value": 400 } },
+      "caption": { "fontSize": { "$value": "12px" }, "lineHeight": { "$value": "18px" }, "weight": { "$value": 500 } }
+    },
+    "scriptLeading": {
+      "latin": { "$value": 1.6 },
+      "sinhala": { "$value": 1.75, "$description": "Taller leading for stacked diacritics (combuva, papilla, hal kirima)" },
+      "tamil": { "$value": 1.7 }
+    }
+  },
+  "space": {
+    "1": { "$value": "4px" }, "2": { "$value": "8px" }, "3": { "$value": "12px" },
+    "4": { "$value": "16px" }, "5": { "$value": "20px" }, "6": { "$value": "24px" },
+    "8": { "$value": "32px" }, "10": { "$value": "40px" }, "12": { "$value": "48px" },
+    "16": { "$value": "64px" }, "20": { "$value": "80px" }, "24": { "$value": "96px" }
+  },
+  "radius": {
+    "xs": { "$value": "4px" }, "sm": { "$value": "8px" }, "md": { "$value": "12px" },
+    "lg": { "$value": "16px" }, "xl": { "$value": "24px" }, "pill": { "$value": "999px" }
+  },
+  "size": {
+    "touch-target-min": { "$value": "48px" },
+    "control-sm": { "$value": "40px" },
+    "control-md": { "$value": "48px" },
+    "control-lg": { "$value": "56px" },
+    "icon-sm": { "$value": "20px" }, "icon-md": { "$value": "24px" }, "icon-lg": { "$value": "32px" }
+  },
+  "elevation": {
+    "1": { "$value": "0 1px 2px rgba(28,27,24,.06), 0 1px 3px rgba(28,27,24,.08)" },
+    "2": { "$value": "0 2px 6px rgba(28,27,24,.07), 0 4px 12px rgba(28,27,24,.08)" },
+    "3": { "$value": "0 8px 24px rgba(28,27,24,.12)" },
+    "4": { "$value": "0 16px 48px rgba(28,27,24,.16)" }
+  },
+  "motion": {
+    "fast": { "$value": "120ms" },
+    "standard": { "$value": "200ms" },
+    "slow": { "$value": "320ms" },
+    "easing": { "$value": "cubic-bezier(0.2, 0, 0, 1)" }
+  },
+  "breakpoint": {
+    "sm": { "$value": "600px" }, "md": { "$value": "905px" },
+    "lg": { "$value": "1240px" }, "xl": { "$value": "1440px" },
+    "container-max": { "$value": "1200px" }
+  }
+}
